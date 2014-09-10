@@ -1,0 +1,83 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\setlength{\columnseprule}{0.1pt}
+\begin{center}
+\part*{Changement d'état}
+\end{center}
+\section{Variance}
+
+\textbf{Variance :} nombre de paramètres intensifs qu'il faut fixer pour déterminer l'état du système.
+$$v=C+2-\phi-r-q$$
+
+ 
+ - $C$ : nombre de constituants
+ 
+ - $\phi$ : nombre de phases distinctes (corps miscibles : une pour les gaz, une pour les liquides ; corps non miscibles : chacun une)
+ 
+ - $r$ : nombre d'équilibres chimiques indépendants
+ 
+ - $q$ : nombre d'autres relations (stœchiométrie par exemple)
+ 
+ \section{Diagramme / Formule de Clapeyron}
+ 
+ C'est un diagramme $P=f(V)$, composé des courbes de séparation de phase (\textbf{ébullition}, \textbf{rosée}) et des isothermes d'Andrews.
+ \bigbreak
+\textbf{ Enthalpie massique de changement d'état :} variation d'enthalpie lors du changement d'état de la phase la plus ordonnée vers la moins ordonnée (1 kg, T et P fixé).
+$$ \boxed{L_{1\rightarrow 2}=T\dfrac{dP_{eq}}{dT}(v_2-v_1)}$$ 
+ 
+ \section{Fonctions d'état}
+
+En raisonnant sur le diagramme (P,V) : \textbf{ne pas la courbe de rosée : capacité de la vapeur saturante inconnue}.
+\medbreak
+H : $ \>\>\> H_M = H_0 + m x_v L_v(T_M) + m c_l (T_M - T_0)$
+ \medbreak
+U : $ \>\>\> U_M = U_0 + m x_v L_v(T_M)  - m P (v_v-v_l) x_v+ m c_l (T_M - T_0)$
+\smallbreak
+ S : $ \>\>\> S_M = S_0 + m x_v \dfrac{L_v(T_M)}{T_M} + m c_l ln \left(\dfrac{T_M}{T_0}\right)$
+
+\vfill
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+
+\end{document}
+

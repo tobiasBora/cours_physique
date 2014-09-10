@@ -1,0 +1,95 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part{Les ondes lumineuses}                % Commencer une partie...
+
+\section{Généralités}               % Commencer une section, etc.
+
+Eclairement : $\mathcal{E} = K<||\vec{E}||>$
+Approximation scalaire : $\underline{s}(M,T) = s_me^{i(\omega t - \phi(M))}$
+avec $\underline{s}=s_me^{-i \phi(O)}$
+
+On a
+ $$\phi_{A \rightarrow B} = \frac{2 \pi}{\lambda_0} (AB) + \phi_{sup}$$
+
+Attention un déphasage de $\pi$ apparait lorsqu'il y a réflexion sur un milieu d'indice supérieur ($n_1 < n_2$).
+
+\section{Principe de Fermat}
+Entre deux points A et B atteints par la lumière, le chemin optique du trajet suivi par la lumière est stationnaire.
+
+\section{Théorème de Malus}
+Les rayons lumineux sont normaux aux surfaces d'ondes.
+
+\section{Résultats à connaître}
+
+\subsection{Lame}
+Pour une lame d'épaisseur $e$ on a $\boxed{\delta = 2 n e cos(r)}$
+
+Pour l'obtenir il suffit d'utiliser le théorème de Malus, puis de jouer un peu avec la trigo en n'ayant pas peur d'avoir des divisions par $cos(r)$ qui devraient se simplifier avec la relation de Descartes $n_1sin(i_1)=n_1sin(i_2)$
+
+\part{Interférences à deux ondes}                % Commencer une partie...
+\section{Deux sources de même fréquence}
+On a avec M le point considéré pour chaque source :
+$$s_1 = s_{1m}cos(1\pi \nu t - \phi_{10} - \frac{2\pi (S_1M)}{\lambda_0})$$
+La formule de superposition est alors
+$$\mathcal{E} = \mathcal{E}_1 + \mathcal{E}_2 + 2 \sqrt{\mathcal{E}_1\mathcal{E}_2}cos(\frac{2 \pi \delta}{\lambda_0} + \Delta\phi)$$
+Et dans le cas le plus courant ($\mathcal{E}_1 = \mathcal{E}_2$ et $\Delta\phi = 0$) on a
+$$\boxed{\mathcal{E} = 2\mathcal{E}_0 \left(1 + cos(\frac{2 \pi \delta}{\lambda_0})\right)}$$
+
+L'ordre d'interférence est défini par $p = \frac{\delta}{\lambda_0} $ qui correspond au numéro de la frange.
+
+NB : pour calculer $\mathcal{E}$ dans d'autres cas il est conseillé d'utiliser la formule $<s>^2 = \frac{1}{2} (s\cdot s^*)$
+
+\subsection{Formes à connaître}
+Dans le cas où les sources sont parallèles à l'écran (trous de Young quand S est centrée par exemple), on a
+$\boxed{\delta = n \frac{ax}{D}}$ et l'interfrange est $\boxed{i = \frac{\lambda_0D}{na}}$
+
+(Preuve pas jolie avec un DL)
+
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+% \raggedcolumns
+\end{multicols*}
+
+\end{document}
+

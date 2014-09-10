@@ -1,0 +1,92 @@
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+\usepackage[europeanvoltage]{circuitikz}
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+\begin{document}
+
+% Pour avoir deux colonnes
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part*{Ondes}
+\section{Généralités}
+On a si la propagation a lieu dans les x croissants $h(t,M) = f(t-x/c)$ et pour les décroissants $h(t,M) = f(t+x/c)$.
+On montre (simplement en dérivant) l'équation de D'Alembert (en 2D puis 3D (avec expression de $\Delta$ on trouve une décroisance en $\frac{1}{r})$ :
+$$\boxed{\frac{\partial^2h}{\partial x^2} - \frac{1}{c^2}\frac{\partial^2h}{\partial t^2}} \qquad \boxed{\Delta h - \frac{1}{c^2}\frac{\partial^2 h}{\partial t^2} = 0}$$
+
+\subsection{Exemple : câble coaxial}
+La méthode consiste alors à appliquer une loi des noeuds au nœud supérieur gauche, et une loi des mailles. En utilisant $V(x+dt)-V(x) = \frac{\partial V}{\partial x}dx$ (Ne pas oublier le $dx$ dans $\Gamma$ et $\Lambda$) on se retrouve alors avec deux équations reliant les dérivées de $u$ et $i$. Il suffit alors pour isoler $u$ ou $i$ de dériver par rapport à $t$ et $x$ et combiner avec le théorème de Schwarz.
+
+\shorthandoff{!}\shorthandoff{:}
+\begin{circuitikz}[scale=0.8, transform shape]
+\draw
+ (0,0) -- (6,0)
+ (4,0) to [C, l_=$\Gamma dx$] (4,2)
+ (0,2) to [L, l^=$\Lambda dx$, i>_=$i(x\,t)$] (4,2) to[short, i^>=${i(x+dt,t)}$] (6,2)
+
+ (0,0) to [open, v^>=${V(x,t)}$] (0,2)
+ (6,0) to [open, v_>=${V(x,t)}$] (6,2)
+;
+\end{circuitikz}
+
+\shorthandon{!}\shorthandon{:}
+
+On retrouve alors l'eq de D'Alembert pour $U$ et $i$ avec $c = \frac{1}{\sqrt{\Gamma \Lambda}}$.
+
+\subsection{Exemple : Corde vibrante}
+On travaille sur une longueur dl. PFD projeté sur $e_x$ donne $T$ cte. Projection sur $e_y$, dire $dl \simeq dx$ et exprimer en fonction de $\frac{\partial \alpha}{\partial x}dx$ puis utiliser $\alpha = \frac{\partial y}{\partial x}$ : c'est la forme de D'Alembert, avec $c=\sqrt{\frac{T}{\mu}}$)
+
+\section*{Ondes planes (O.P.)}
+\textbf{Def onde plane (OP)} : Surfaces d'ondes perpendiculaire à la direction de propagation.
+
+\textbf{Def onde place progressive (OPP)} : OP qui se déplace dans un sens donné (pas de superposition x $\nearrow$ et $\searrow$).
+
+\textbf{Def OPP monochromatique/harmonique (OPPM)} : OPP ayant une composante sinusoïdale du temps.
+
+Vecteur d'onde : $\overrightarrow{k}=\frac{\omega}{c}\overrightarrow{u_r}$, on a alors $h=h_0cos(\omega t - \overrightarrow{k}\cdot\overrightarrow{r} + \phi_0)$ pour x $\nearrow$, et $h=h_0cos(\omega t + \overrightarrow{k}\cdot\overrightarrow{r} + \phi_0)$ pour x $\searrow$.
+
+\subsection{Vitesse phase/groupe}
+
+\textbf{Vitesse de phase} : $\boxed{v_\phi=\frac{\omega}{k}}$
+
+(Pas de réalité physique, avec relation dispertion on isole k).
+\\
+
+\textbf{Vitesse de groupe} : $\boxed{v_g=\frac{d\omega}{dk}}$
+
+(On différentie la relation de dispertion) On a alors $\boxed{v_g v_{\phi} = \frac{c^2}{n^2}}$.
+
+Lorsque l'on a un phénomène de battement, $v_\phi$ est la vitesse de l'oscillation rapide et $v_g$ est la vitesse de l'enveloppe.
+
+\subsection{Ondes stationnaires}
+De la forme $h=F(x)G(t)$.
+ On injecte dans D'Alembert, on isole F et G, on résout suivant le signe (cas impossibles) => $h_m(x,t) = h_{0_m} cos(\omega_m t + \phi_m) cos(k_m x + \psi_m)$.
+
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+\end{multicols*}
+
+
+\end{document}

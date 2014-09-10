@@ -1,0 +1,122 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\setlength{\columnseprule}{0.1pt}
+\begin{center}
+\part*{Diffusion thermique}
+\end{center}
+\section{Modes de transfert thermique}
+
+$\bullet$ \textbf{Conduction :} pas de mouvement macroscopique. C'est un phénomène de conductibilité thermique en particulier pour les milieux solides. Également appelé \textbf{diffusion} thermique.
+
+\medbreak
+
+$\bullet$ \textbf{Convection :} mouvement macroscopique des milieux fluides. Naturelle en cas de gradient de température ou forcée par intervention de l'Homme.
+
+\medbreak
+
+$\bullet$ \textbf{Rayonnement électromagnétique :} ne nécessite pas de support matériel.
+
+
+\section{Flux d'énergie}
+
+On définit $\overrightarrow{j_{th}}$ vecteur densité de courant thermique.
+
+La puissance thermique traversant $\overrightarrow{dS}$ est $d\phi=\overrightarrow{j_{th}}\cdot\overrightarrow{dS}$
+
+d'où $\boxed{\delta Q=d\phi \> dt=\overrightarrow{j_{th}}\cdot\overrightarrow{dS}\>dt}$
+
+\bigbreak
+
+On considère alors la loi \textbf{phénoménologique} de \textbf{Fourier} : 
+
+\begin{center}$\boxed{\overrightarrow{j_{th}}=-\lambda\>\overrightarrow{grad}T}$
+\end{center}
+
+avec $\lambda$ la conductivité thermique, par analogie avec le potentiel électrique V  ($\overrightarrow{j}= \gamma \overrightarrow{E} = - \gamma \overrightarrow{grad} V$), T est le potentiel thermique.
+
+$\newline \newline$
+
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+\section{Équation de diffusion thermique / de la chaleur}
+\begin{center}
+
+Version linéique : $\boxed{ \rho c\dfrac{\partial T}{\partial t}=\lambda\dfrac{\partial^2 T}{\partial x^2}+\mathscr{P}_{v}}$ 
+\end{center}
+
+avec $\dfrac{\lambda}{\rho c}$ la diffusivité thermique
+
+Version cylindrique : $ \rho c\dfrac{\partial T}{\partial t}=-\dfrac{\lambda}{r}\dfrac{\partial r j_{th}}{\partial r}$
+
+Version sphérique : $ \rho c\dfrac{\partial T}{\partial t}=-\dfrac{\lambda}{r^2}\dfrac{\partial r^2 j_{th} }{\partial r}$
+
+Dans le cas général : $\boxed{\rho c\dfrac{\partial T}{\partial t}=\lambda \>\Delta T}$
+\medbreak
+\underline{Méthode d'établissement :} avec le premier principe 
+
+$dU=\rho d\tau c \dfrac{\partial T}{dt}dt$ (loi de Joule)
+
+$\delta Q_e-\delta Q_s=\lbrace[j_{th}S](l)-[j_{th}S](l+dl)\rbrace dt=-\dfrac{\partial j_{th}(l)S(l)}{\partial l}dldt$
+
+puis utiliser la loi de Fourier.
+
+\section{Convection}
+
+\textbf{Loi de Newton :} $\boxed{j_{cc}=h(T(x=0)-T_{\infty})}$
+
+\smallbreak
+Condition limite conducto-convective (pour $\frac{\partial T}{\partial x}$) :
+
+$\>\>\>\>\>\>\>\>\>\>\>\>\>\>j_{cc}=h(T(x=0)-T_{\infty})=j_{th}=-\lambda\>\overrightarrow{grad}T$
+
+\section{Résistance thermique}
+
+$\boxed{R_{th}=\frac{1}{\lambda}\frac{l}{S}}\>\>$ Montage en série : traversé par le même flux$_{th}$.
+\smallbreak
+Mais aussi : $\boxed{R_{th}=\dfrac{T_2-T_1}{\phi_{1\rightarrow 2}}}\>\>\>$ avec : $\displaystyle{\phi_{1\rightarrow 2}= \iint _{S_1} \overrightarrow{j_{th_1}}\cdot\overrightarrow{dS_1}}$
+
+
+% \raggedcolumns
+
+\end{document}
+

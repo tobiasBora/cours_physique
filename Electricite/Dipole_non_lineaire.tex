@@ -1,0 +1,112 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\setlength{\columnseprule}{0.1pt}
+\begin{center}
+\part*{Dipôles non linéaires}
+\end{center}
+\section{Diode}
+
+Sa caractéristique (graphe $i=f(u)$) est non linéaire.
+
+Lorsque l'intensité est nulle dans la diode, on dit qu'elle est \textbf{bloquée ($\sim$ coupe circuit}), et lorsqu'elle est non nulle, on dit qu'elle est \textbf{passante ($\sim$ fil)}.
+\medbreak
+Pour connaître l'état de la diode, tracer la courbe $i=f(u_{diode})$ pour le circuit (droite de charge) sur la caractéristique de la diode, leur intersection étant le \textbf{point de fonctionnement}.
+\smallbreak
+Cela revient à comparer la tension appliquée à la diode à sa tension de seuil.
+
+\medbreak 
+
+$\Rightarrow$ Pour les problèmes en comprenant : 
+
+$\>\>\>\>$- trouver les instants de (dé)blocage de la diode.
+
+$\>\>\>\>$- modéliser les circuits équivalents en fonction.
+
+
+
+\section{Oscillateurs quasi-sinusoïdaux}
+
+Principe : les équations des oscillateurs contiennent toujours un terme dissipatif, l'idée est d'ajouter un montage apportant de l'énergie (A.O.) pour rendre cette résistance négative.
+
+% \raggedcolumns
+
+
+\section{A.O. en régime non linéaire}
+
+\textbf{A.O. parfait :} $\boxed{i_+=i_-=0}$
+
+\textbf{A.O. en régime linéaire :} $\boxed{V^+=V^-}$
+
+\medbreak
+
+On a alors : $\>\>\>\>\>\>\boxed{\underline{v_s}=\dfrac{A_0}{1+j\frac{\omega}{\omega_c}} (V^+-V^-)}\>\>\>$
+
+ avec $A_0>10^5$ et $\omega_c\simeq 100 \>rad.s^{-1}$.
+ 
+ Il faut étudier l'équation différentielle du montage pour conclure quant à sa nature mais :
+ 
+ S'il n'y a pas de bouclage entre l'entrée inverseuse (-) et la sortie, seul le fonctionnement non linéaire est possible.
+ 
+ \medbreak
+ Si comportement non linéaire :
+ 
+  - $V_s=+V_{sat}\Leftrightarrow V_+>V_-$
+  
+  - $V_s=-V_{sat}\Leftrightarrow V_+<V_-$
+  \medbreak
+  Pour les montages à \textbf{hystérésis} : déterminer quand $V_s=\pm V_{sat}$ en fonction de $V_e$.
+
+% \raggedcolumns
+
+
+\blfootnote{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+
+\end{document}
+

@@ -1,0 +1,99 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\setlength{\columnseprule}{0.1pt}
+\begin{center}
+\part*{Grandeurs standard}
+\end{center}
+\section{Grandeur standard de réaction}
+
+$$\boxed{ \Delta _r X^0(T,\xi) = \sum\limits_i \nu_i X^0_{m,i}(T,\xi) = \left(\dfrac{\partial X^0}{\partial \xi} \right) }$$
+
+Attention ne pas confondre : 
+
+$\Delta _r X^0(T,\xi) =\left(\dfrac{\partial X^0}{\partial \xi} \right) \>\>\>$ et $\>\>\> \Delta X = X(\xi_2)-X(\xi_1) = \displaystyle{\int_{\xi_1}^{\xi_2} \Delta_r X d\xi}$
+\medbreak
+Ainsi : $\boxed{\Delta H_{12}=(\xi_2-\xi_1) \Delta_r H^0}$
+
+\section{Lois de Kirchhoff}
+Relations à intégrer entre 2 températures :
+\smallbreak
+Pour H : $\>\>\>\boxed{\dfrac{d(\Delta_r H^0)}{dT}=\sum\limits_i\nu_i C_{P,m,i}^0(T) = \Delta_rC_P^0(T)}$ 
+\smallbreak
+Pour S : $\>\>\>\>\boxed{\dfrac{d(\Delta_r S^0)}{dT}=\dfrac{1}{T}\sum\limits_i\nu_i C_{P,m,i}^0(T) = \dfrac{1}{T}\Delta_rC_P^0(T)}$
+
+\smallbreak
+
+\textbf{Approximation d'Ellingham :} tant qu'il n'y a pas de changement d'état, on suppose $\Delta_rH^0$ et $\Delta_rS^0$ \textbf{indépendants de la température} (mais pas $\Delta_rG^0$ !).
+
+\section{Grandeurs standard de formation}
+Relation valable pour \textbf{une mole} de corps à partir des \textbf{corps simples} dans leur \textbf{état standard de référence}.
+\medbreak
+\textbf{Loi de Hess :} $\>\>\>\boxed{\Delta_rX^0(T)=\sum\limits_i\nu_i\Delta_fX^0(T)}$
+
+\section{Relations entre grandeurs standard}
+
+Partant de : $\>\boxed{G=-TS+H}\>$ on obtient :
+
+$$\boxed{\Delta_rG^0(T)=\Delta_rH^0(T)-T\Delta_rS^0(T)}$$
+
+$$\boxed{\dfrac{d\Delta_rG^0}{dT}=-\Delta_rS^0(T)}$$
+
+Relation de Gibbs-Hedlmholtz :
+$$\boxed{\dfrac{d}{dT}\left(\dfrac{\Delta_rG^0(T)}{T}\right)=-\dfrac{\Delta_rH^0(T)}{T^2}}$$
+
+On a également le lien avec les grandeurs de changement d'état : 
+
+$\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\Delta_rH^0=L_{f,m}\>\>$ ou $\>\>\Delta_rS^0=\frac{L_{f,m}}{T_f}$
+
+
+\bigbreak
+
+Pour trouver l'énergie $U$ :
+\smallbreak
+$\Delta_rU^0=\Delta_rH^0 - RT \sum \nu_{i,gaz}=\Delta_rH^0 - RT \Delta_r\nu_{gaz}$
+
+\vfill
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+\end{document}
+

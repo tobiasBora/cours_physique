@@ -1,0 +1,125 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\setlength{\columnseprule}{0.1pt}
+\begin{center}
+\part*{Induction}
+\end{center}
+\section{Méthode : courant induit}
+
+
+$\bullet$ 1. Orientation du circuit
+
+$\bullet$ 2. Calcul de $e_{m}$ ou $\overrightarrow{E_{m}}$
+
+\hspace{4mm}
+   $\overrightarrow{E_{m}}=-\dfrac{\partial\overrightarrow{A}}{\partial t}+\overrightarrow{v_{e}}\wedge\overrightarrow{B}\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\> \Rightarrow e_{AB}=\displaystyle{\overrightarrow{E_{m}}(M)\cdot dl_{M}}$
+   
+ \hspace{4mm}  \textbf{Loi de Faraday :} $\boxed{e_{m}=-\dfrac{d \phi_{\overrightarrow{B}}}{dt}} \>\>\>$ avec $\>\>\> \displaystyle{\phi_{\overrightarrow{B}}=\iint \overrightarrow{B}\cdot\overrightarrow{dS}}$
+
+
+$\bullet$ 3. Circuit équivalent
+
+\hspace{4mm} Prendre en compte : $\>$- résistance 
+
+\hspace{37mm} - f.e.m inductive dans le sens de $\overrightarrow{i}$ 
+
+\hspace{37mm} - auto-inductance
+
+\hspace{4mm} $\hookrightarrow$ Loi des mailles
+
+
+$\bullet$ 4. Calcul de i
+
+
+\section{Inductance réciproque}
+
+On note $\phi_{1\rightarrow2}$ le flux du champ $\overrightarrow{B_{1}}$ créé par $i_{1}$ et de même réciproquement.
+
+On appel $M$ le coefficient d'inductance mutuelle (en Henry) :
+
+$\phi_{1\rightarrow2}=Mi_{1} \>\>et\>\> \phi_{2\rightarrow1}=Mi_{2}$
+
+
+\section{Inductance propre}
+
+Un circuit parcouru par un courant génère un champ magnétique propre $\overrightarrow{B_{p}}$ qui un génère un flux proportionnel à $i$, on défini ainsi l'auto-inductance L : $\>\>\>\>\>\>\>\>\boxed{\phi_{p}=Li}$
+
+d'où $e_p=-\dfrac{d\phi_p}{dt}=-L\dfrac{di}{dt}$  $\>\>\>\>\>\>\>\>\Rightarrow$ ne pas le compter 2 fois !
+
+
+\section{Énergie}
+
+$E_m=\dfrac{1}{2}Li^2=\dfrac{1}{2}\phi_p i$
+
+Pour un circuit couplé : $\mathscr{P}_{magn} =\dfrac{d} {dt} (\dfrac{1}{2} L_1 i_1^2+\dfrac{1} {2} L_2 i_2^2+Mi_1 i_2)$
+
+\section{Exercice d'induction}
+
+Distinguer : 
+
+- induction de \textbf{Neuman} : champ magnétique en mouvement
+
+- induction de \textbf{Lorentz} : circuit est en mouvement dans un champ magnétique fixe 
+
+
+$\newline$
+
+Équations utiles : - f.e.m. d'induction par Lorenz 
+
+\hspace{28mm}- électrique (loi des mailles)
+
+\hspace{28mm}- force de Laplace
+
+\hspace{28mm}- mécanique (TRD ou TMC)
+
+\section{Force de Laplace}
+
+$\overrightarrow{F_{lap}}=I\overrightarrow{dl}\wedge\overrightarrow{B}$
+
+\vfill
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+% \raggedcolumns
+
+\end{document}
+

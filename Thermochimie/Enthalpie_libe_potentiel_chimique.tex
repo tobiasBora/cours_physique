@@ -1,0 +1,118 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\setlength{\columnseprule}{0.1pt}
+
+
+\part*{Enthalpie libre}
+\section{Définition}
+\begin{center}
+$\boxed{G=U+PV-TS=H-TS}$
+\end{center}
+
+On a $\Delta G\leq W_{autre}$, l'égalité étant atteinte dans le cas réversible.
+\medbreak
+Forme différentielle : $\boxed{dG=-SdT+VdP}$
+\medbreak
+Donc : $S=-\left(\frac{\partial G}{\partial T}\right) _P$ et $V=-\left(\frac{\partial G}{\partial P}\right) _T$
+
+
+\section{Relation de Gibbs-Helmholtz}
+\begin{center}
+
+$\displaystyle{\dfrac{\partial}{\partial T}\left( \dfrac{G}{T} \right) _P=\dfrac{-H}{T^2}}$
+\end{center}
+
+
+\section{Enthalpie libre d'un gaz parfait}
+$\boxed{G(P,T)=G^0(T)+nRT ln\frac{P}{P^0}}$
+
+\section{Enthalpie libre d'une phase condensée}
+$\boxed{G(P,T)=G^0(T)+(P-P^0)V^0}$
+
+\section{Énergie libre}
+
+\begin{center}
+$F=U-TS$
+\end{center}
+On a : $\Delta F\leq W$, l'égalité étant atteinte dans le cas réversible.
+Forme différentielle : $dF=-SdT-PDV$
+
+
+
+\part*{Potentiel Chimique}
+\section{Définition}
+
+$\boxed{\mu_i=\left(\dfrac{\partial G}{\partial n_i}\right)_{T,P,n_{j\neq i}}}$ et ainsi : $dG=-SdT+VdP+\sum\limits_{\substack{i=0}}^{n}  \mu_i dn_i$
+
+Relation dite d'Euler : $\boxed{G=\sum\limits_{\substack{i=0}}^{n}  \mu_i n_i}\>\>$ d'où $s_i=-\left(\frac{\partial \mu_i}{\partial T}\right) _{P,n_j}$ 
+\bigbreak
+Forme différentielle : $\boxed{d\mu=-s_mdT+v_mdP}$ pour un corps pur.
+\bigbreak
+
+On a $\Delta G\leq0$ donc la réaction a lieu \textbf{dans le sens du plus petit potentiel chimique.} Équilibre ssi $\mu_l=\mu_v$.
+
+\section{Potentiel chimique pour un gaz parfait}
+
+$\boxed{\mu(P,T)=\mu^0(T)+RT ln\frac{P}{P^0}}$
+
+\section{Mélange de gaz parfaits}
+
+$\boxed{\mu_i(P_i,T)=\mu_i^0(T)+RT ln\frac{P_i}{P^0}}\>\>$ avec $P_i=x_iP=\dfrac{n_i}{n_{tot}}P$
+
+
+\section{Mélange de phase condensée}
+
+$\boxed{\mu_i(P,T)=\mu^0(T)+v_m^0(P-P^0)+RT ln x_i}$ 
+
+avec ici $x_i=a_i$ qui vaut 1 si : corps pur et une seule phase.
+\bigbreak
+
+Cas d'un soluté (mélange idéal) : $\boxed{\mu_i(P,T)=\mu^0(T)+RT ln \dfrac{c_i}{c^0}}$ 
+
+% \raggedcolumns
+\vfill
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+
+\end{document}
+

@@ -1,0 +1,89 @@
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+\usepackage[europeanvoltage]{circuitikz}
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+\begin{document}
+
+% Pour avoir deux colonnes
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part*{Diffraction}
+\section{Principe}
+\noindent
+Huygens :
+\begin{itemize}
+  \item Chaque surface élémentaire $dS_p$ de $\Sigma$, atteinte par l'onde incidente provenant de S, se comporte comme une source secondaire ponctuelle émettant une onde sphérique.
+  \item L'amplitude de cette onde est proportionnelle à celle de l'onde incidente et à $dS_p$
+\end{itemize}
+Fresnel :
+\begin{itemize}
+  \item Les sources secondaires sont cohérentes entre elles et interfèrent au point M.
+\end{itemize}
+
+\section{Expression de l'onde}
+Onde incidente :
+$\underline{a}(P,t) = \underline{a}(P) e^{-i\omega t} \qquad \underline{a}(P) = \underline{A} (P) e^{i\phi (P)}$
+
+Onde émise par $dS_p$ : $da_s(M) = \underline{\alpha} \underline{A} (P) \dfrac{e^{i \phi (P) + \frac{i2\pi PM}{\lambda_0} }}{PM} dSp$
+
+\subsection{Conditions de Fraunhofer}
+\begin{itemize}
+  \item Source S à très grande distance
+  \item Observation à grande distance
+  \item ==> Ondes considérées comme planes
+\end{itemize}
+
+\subsection{Exploitation Huygens-Fresnel}
+Si $\overrightarrow{k_i} = \frac{2\pi}{\lambda_0} \overrightarrow{u_i} $ est le vecteur d'onde incidente, et $\overrightarrow{k} = \frac{2\pi}{\lambda_0} \overrightarrow{u} $ celui de l'onde dans la direction d'observation M on montre que $\delta = \overrightarrow{u_i} \cdot \overrightarrow{OP} - \overrightarrow{u} \cdot \overrightarrow{OP} $ et ainsi (temps facultatif) :
+
+$\boxed{\underline{a_d}(M,t) = K' e^{-i\omega t} \iint_{\Sigma_p} \underline{t} (P) \underline{A}(P) e^{i \frac{2\pi}{\lambda_0} (\overrightarrow{u_i} - \overrightarrow{u}) \cdot \overrightarrow{OP}  } dS_p }$
+
+où $\underline{t} $ est la fonction de transmission lorsque le signal n'est pas dévié (enregistre la différence de chemin (phase) et d'amplitude).
+
+\section{Cas souvents rencontrés}
+\begin{itemize}
+\item \textbf{Fentre très longue} : $\mathcal{E} = \mathcal{E}_0 * \left( sinc \left( \frac{\pi a (\alpha_i - \alpha)}{\lambda_0} \right) \right)^2 $
+  
+  Largeur du centre : $\frac{2\lambda_0}{a} $
+  
+\item \textbf{Ouverture rectangulaire} : $\mathcal{E} = \mathcal{E}_0 * sinc^2 \left( \frac{\pi a (\alpha_i - \alpha)}{\lambda_0} \right) * sinc^2 \left( \frac{\pi b (\beta_i - \beta)}{\lambda_0} \right) $
+\item \textbf{Ouverture circulaire} : Largeur angulaire du disque central : $1,22 \dfrac{\lambda}{a} $. (Eclairement pas jolie avec intégrale de Bessel)
+\item \textbf{Fentes de Young} : On a un double phénomène d'où $\mathcal{E} = \mathcal{E}_0 sinc^2 \left( \frac{\pi \alpha b}{\lambda_0}  \right) \left( 1 + cos \frac{2\pi\alpha a}{\lambda_0}  \right) $ ($a$ espacement, $b$ largeur).
+\item \textbf{Réseau} : Transmission : $\boxed{a(sin \theta_2 - sin \theta_1) = p\lambda_0}$\\
+Réflexion : $\boxed{a(sin \theta_2 + sin \theta_1) = p\lambda_0}$
+\end{itemize}
+
+\section{Pour obtenir l'éclairement}
+$$\boxed{\mathcal{E} = \underline{A} \cdot \underline{A} ^*} \text{ (rigoureusement on a un facteur 1/2)}$$
+
+\section{Invariances}
+\textbf{Théorème de Babinet} : Si deux pupilles sont complémentaires (ex : fente/cheveu) elles ont la même figure de diffraction, sauf au centre.
+
+La figure de diffraction est également indépendante de la position de la fente (image à l'infini).
+\vfill\null
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+\end{multicols*}
+\end{document}

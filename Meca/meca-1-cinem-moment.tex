@@ -1,0 +1,99 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part*{Cinématique}
+\section{Définitions}
+\subsection{Cinétique}
+Résultante cinétique : $\overrightarrow{P}=\sum_im_i\overrightarrow{v_i}$
+\\On montre $\overrightarrow{P}=m\overrightarrow{v}_{G/R}$ d'où $\overrightarrow{P^*}=\overrightarrow{0}$.\\
+
+Moment cinétique : $\overrightarrow{L_A}=\sum_i{m_i\overrightarrow{AM}_i\wedge\overrightarrow{v_i}}$\\
+Dans $R^*$ le moment cinétique de dépend pas du point considéré, on le note $\overrightarrow{L^*}$.
+\subsection{Dynamique}
+
+Résultante dynamique : $\overrightarrow{D}=\sum_im_i\overrightarrow{a_i}=m\overrightarrow{a_{G/R}}=\frac{d\overrightarrow{P}}{dt}$.\\
+Moment dynamique : $\overrightarrow{\delta_A}=\sum_i\overrightarrow{AM_i}\wedge\overrightarrow{a_i}$
+
+\subsection{Relation moment cinétique/ moment dynamique}
+Cas général $\left(\frac{d\overrightarrow{L_A}}{dt}\right) = \overrightarrow{\delta_A} + \overrightarrow{P}\wedge\overrightarrow{v_{A/R}} = \overrightarrow{\delta_A} + m\overrightarrow{v_{G/R}}\wedge\overrightarrow{v_{A/R}}$.\\
+Si A est fixe ou si $A=G$ on a $\frac{d\overrightarrow{L_A}}{dt}=\overrightarrow{\delta_A}$
+% \columnbreak
+\section{Théorème de Koenig}
+\subsection{Cinétique/Dynamique}
+\begin{center}
+$\boxed{\overrightarrow{L_A}=\overrightarrow{L^*}+\overrightarrow{AG}\wedge\overrightarrow{P}}$
+(Avec $\overrightarrow{P}=m\overrightarrow{v_{G/R}}$)
+\end{center}
+NB : On retrouve la formule de Varignon $\overrightarrow{M_B}=\overrightarrow{M_A}+\overrightarrow{BA} \wedge \overrightarrow{R}$.
+\\Et avec la version moment dynamique : $\overrightarrow{\delta_A}=\overrightarrow{\delta^*}+\overrightarrow{AG}\wedge\overrightarrow{D}$
+
+\subsection {Énergie cinétique}
+Théorème de Koenig
+$$E_c = Ec^* + \frac{1}{2}m\overrightarrow{v_{G/R}}^2$$
+
+\section{Vitesse d'un solide}
+Formule de Varignon
+$$\boxed{\overrightarrow{v_{A/R}} = \overrightarrow{v_{B/R}} + \overrightarrow{AB}\wedge\overrightarrow{\omega_{S/R}}}$$
+
+Vitesse de glissement : $\overrightarrow{v_g} = \overrightarrow{v_{I_2/R}}-\overrightarrow{v_{I_1/R}}$
+
+Roulement sans glissement : $\overrightarrow{v_{M/R}}=\overrightarrow{\omega_T}\wedge\overrightarrow{IM}$
+
+
+\section{Solide en rotation}
+Moment cinétique : $L_\Delta = \overrightarrow{L_O}\cdot\overrightarrow{u_z} = \omega \iiint_S{HM^2dm} = \omega J_\Delta$
+$J_\Delta$ est le moment d'inertie (scalaire).
+
+Energie cinétique :
+$$\boxed{E_c = \frac{1}{2}J_\Delta\omega^2 = \frac{1}{2}\overrightarrow{L_O}\cdot\overrightarrow{\omega}}$$
+
+Théorème d'Huygens (HP ?) : Souvent on donne $J_{\Delta_G}$, l'axe $\Delta_G$ passant par G et on souhaite connaitre $J_\Delta$ avec $\Delta$ parallèle à $\Delta_G$. On note $a$ la distance entre ces deux axes, $m$ la masse du solide :
+$$J_\Delta = J_{\Delta_G} + ma^2$$
+(Preuve en injectant le théorème de Koenig)
+
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+% \raggedcolumns
+\end{multicols*}
+
+\end{document}
+

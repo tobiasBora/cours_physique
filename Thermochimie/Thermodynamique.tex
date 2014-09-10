@@ -1,0 +1,107 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\setlength{\columnseprule}{0.1pt}
+\begin{center}
+\part*{Thermodynamique}
+\end{center}
+\section{Bases}
+Loi des gaz parfaits : $\boxed{PV=nRT}$  $\>\>\>$ avec $n=\dfrac{N}{N_A}$ et $k_B=\dfrac{R}{N_A}$
+
+Loi de Van der Waals : $(P+\dfrac{n^2a}{v^2})(V-nb)=nRT$ 
+
+\medbreak
+Coefficient de dilatation isobare : 
+$\alpha=\frac{1}{V} \left( \frac{\partial V}{\partial T} \right) _P$
+
+Coefficient de compressibilité isotherme : 
+$\chi _T=\frac{-1}{V} \left( \frac{\partial V}{\partial P} \right) _T$
+
+\section{Premier principe}
+
+Forme différentielle : $\boxed{dE=\delta W+\delta Q}$ 
+\smallbreak
+avec $dE=dU+dE_p+dE_c$
+\medbreak
+Loi de Joule : $dU=C_v dT$ avec $ C_v=\dfrac{nR}{\gamma-1}$
+
+
+\bigbreak
+
+Forme système ouvert : $\boxed{dH=\delta Q} \>\>\>\>\>$ avec $H=U+PV$
+\smallbreak
+Loi de Joule : $dH=C_p dT$ avec $ C_p=\dfrac{\gamma nR}{\gamma-1}$ 
+
+Relations utiles : $\gamma =\frac{C_p}{C_v}$ mais aussi $C_p-C_v=nR$
+
+
+\section{Second principe}
+
+Forme différentielle : $\boxed{dS=\delta S_e+\delta S_c}$ 
+\medbreak
+Entropie échangée : $S_e=\frac{Q}{T}$
+
+Entropie créée : $S_c\geq0$ (égalité si réversibilité)
+
+\section{Loi de Laplace}
+
+Système adiabatique + réversible = isentropique.
+
+$\>\>\>\>\>\>\>\>\>\>\>\>PV^{\gamma}=cst  \>\>\>\>\>\>\> TV^{\gamma-1}=cst   \>\>\>\>\>\>\> T^{\gamma}P^{1-\gamma}=cst$
+
+
+\section{Identité thermodynamique}
+
+Forme différentielle : $\boxed{dH=TdS+PdV}$
+\bigbreak
+D'où (à l'image de la loi de Laplace) :
+
+$\Delta S=C_v ln \dfrac{PV^{\gamma}}{P_0 V_0^{\gamma}}=C_v ln \dfrac{TV^{\gamma-1}}{T_0 V_0^{\gamma-1}}=C_v ln \dfrac{T^{\gamma}P^{1-\gamma}}{T_0^{\gamma} !P_0^{1-\gamma}}$ 
+
+% \raggedcolumns
+
+\vfill
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+
+\end{document}
+

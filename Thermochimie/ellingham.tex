@@ -1,0 +1,75 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part*{Diagrammes d'Ellingham}
+\section{Construction du diagramme}
+On étudie la réaction entre deux couples oxydes/métaux. Le diagramme consiste à tracer $\Delta_rG^0$ en fonction de $T$. Pour calculer $\Delta_rG^0$ on se place dans l'approximation d'Ellingham avec $\Delta_rH^0$ et $\Delta_rS^0$ de constant tant qu'il n'y a pas de changement de température puis on utilise la formule:
+$$\Delta_rG^0 = \Delta_rH^0 - T\Delta_rS^0$$
+
+Si on produit plus de gaz qu'en n'en consomme la pente est positive ($\Delta_rS > 0$) et vis versa.
+
+Lorsque le métal est porté à plus haute température et change d'état, la pente augment.
+
+Le métal est à placer sous la pente tandis que l'oxyde est à placer au dessus
+
+\section{Raisonner sur le diagramme}
+Pour savoir dans quelle zone on se trouve il suffit de comparer la pression avec la pression d'équilibre. Si $P > P_{eq}$ c'est l'oxyde qui est stable, si $P < P_{eq}$ c'est le métal (on introduit la variable $y = -RT_1ln(Q)$ qu'il faut comparer avec $\Delta_rG^0$).
+\medbreak
+
+\textbf{Raisonner sur le signe de} $\boxed{A=-\Delta_rG^0(T)-RT ln Q}$
+
+\medbreak
+On a corrosion lorsque $P > P_c$ : la pression de corrosion augmente avec T. Elle est souvent très faible ($10^{-88}$ bar pour le fer) sauf pour les métaux nobles (Or : $10^{15}$ bar). => Les métaux les plus facilement oxydables sont dans le bas du diagramme et les métaux nobles dans le haut du diagramme.
+\\
+
+
+Un oxyde est réduit par tout métal dont la droite d'Ellingham est en dessous de la sienne.
+
+\vfill\null
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+% \raggedcolumns
+\end{multicols*}
+
+\end{document}
+

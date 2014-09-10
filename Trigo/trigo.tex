@@ -1,0 +1,95 @@
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+\setlength{\parindent}{0cm} %No indentation
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entètes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+\begin{document}
+\begin{multicols*}{2}
+\part*{Formule}
+\section{Décomposition}
+$\rightarrow$ cos(a+b) = cos(a)cos(b) - sin(a)sin(b)\\
+$\rightarrow$ cos(a-b) = cos(a)cos(b) + sin(a)sin(b)\\
+$\rightarrow$ sin(a+b) = sin(a)cos(b) + sin(b)cos(a)\\
+$\rightarrow$ sin(a-b) = sin(a)cos(b) - sin(b)cos(a)\\
+$\rightarrow$ tan(a+b) = $\dfrac{tan(a) + tan(b)}{1 - tan(a)tan(b)}$\\
+$\rightarrow$ tan(a-b) = $\dfrac{tan(a) - tan(b)}{1 + tan(a)tan(b)}$
+
+\section{Angle double}
+$\rightarrow$ sin(2a) = 2sin(a)cos(a)\\
+$\rightarrow$ cos(2a) = $2cos^2(a)-1$ = $1 - 2sin^2(a)$\\
+$\rightarrow$ tan(2a) = $\dfrac{2tan(a)}{1-tan^2(a)}$
+\section{Linéarisation}
+$\rightarrow$ 2cos(a)cos(b) = cos(a+b) + cos(a-b)\\
+$\rightarrow$ 2sin(a)sin(b) = cos(a-b) - cos(a+b)\\
+$\rightarrow$ 2sin(a)cos(b) = sin(a+b) + sin(a-b)\\
+$\rightarrow$ $cos^2(a) = \dfrac{1+cos(2a)}{2}$\\
+$\rightarrow$ $sin^2(a) = \dfrac{1-cos(2a)}{2}$
+\section{Somme}
+$\rightarrow cos(p) + cos (q) = 2(cos(\dfrac{p+q}{2}).cos(\dfrac{p-q}{2}))$ \\
+$\rightarrow$cos(p) - cos (q) = -$2(sin(\dfrac{p+q}{2}).sin(\dfrac{p-q}{2}))$\\
+$\rightarrow$sin(p) + sin (q) = $2(sin(\dfrac{p+q}{2}).cos(\dfrac{p-q}{2}))$\\
+$\rightarrow$sin(p) - sin (q) = $2(cos(\dfrac{p+q}{2}).sin(\dfrac{p-q}{2}))$
+\section{Arc moitié}
+On pose $t=tan(\frac{\theta}{2})$ on a\\
+$cos(a) = \frac{1-t^2}{1+t^2} \qquad sin(a) = \frac{2t}{1+t^2} \qquad tan(a) = \frac{2t}{1-t^2}$\\
+$arcsin(x) + arccos(x) = \frac{\pi}{2}$\\
+$arctan(x) + arctan(\frac{1}{x})$ = $\pm\dfrac{\pi}{2}$ (dépend du signe de x)\\
+$cos^2(x)+sin^2(x) = 1 \qquad ch^2(x) - sh^2(x) = 1$
+\part*{Fonction inverse}
+\section{Fonction Hyperbolique}
+\begin{center}
+  \begin{tabular}{|l|l|l|l|} \hline
+    Fonction & $D_f$ & $D_{f'}$ & f'(x) \\ \hline
+    Argch & $]1:+\infty$ & ]1;$+\infty$[ & $\dfrac{1}{\sqrt{x^2-1}}$ \\   \hline
+    Argsh & $\Re$ & $\Re$ & $\dfrac{1}{\sqrt{x^2+1}}$ \\  \hline
+    Argth & $]-1;1[$ & $]-1;1[$ & $\dfrac{1}{1-x^2}$ \\  \hline
+  \end{tabular}
+\end{center}
+\section{Fonction Trigonométrique}
+\begin{center}
+% use packages: array
+\begin{tabular}{|l|l|l|l|}
+\hline
+Fonction & $D_f$ & $D_{f'}$ & f'(x) \\ \hline
+Arccos & [-1:1] & ]-1;1[ & $\dfrac{-1}{\sqrt{1-x^2}}$ \\  \hline
+Arcsin & [-1:1] & ]-1;1[ & $\dfrac{1}{\sqrt{1-x^2}}$ \\ \hline
+Arctan & $\Re$ & $\Re$ & $\dfrac{1}{1+x^2}$ \\ \hline
+\end{tabular}
+\end{center}
+% \raggedcolumns
+
+
+\end{multicols*}
+
+
+\end{document}

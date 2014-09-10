@@ -1,0 +1,143 @@
+
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage[european resistors]{circuitikz}
+\usepackage{sistyle}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+\begin{document}
+
+% Pour avoir deux colonnes
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+
+
+
+\part*{Électricité : filtres linéaires}
+\section{Ordres de grandeurs}
+Impédance de sortie d'un G.B.F : $R_s = 50 \ohm$
+
+Impédance d'entrée d'un oscilloscope :
+
+Couplage DC :
+\shorthandoff{:!}
+\begin{circuitikz}[scale=0.7]\draw
+(0,0) -- (4,0)
+      to[C, l_=\SI{15}{pF}] (4,2)
+      -- (0,2)
+(2,0) to[R, l^=\SI{1}{M\ohm}] (2,2)
+;
+\end{circuitikz}
+\shorthandon{:!}
+
+Couplace AC :
+\shorthandoff{:!}
+\begin{circuitikz}[scale=0.7]\draw
+(0,0) -- (4,0)
+      to[C, l_=$C_e$] (4,2)
+      -- (2,2)
+      to[C, l^=\SI{0.1}{\micro F}] (0,2)
+(2,0) to[R, l_=$R_e$] (2,2)
+;
+\end{circuitikz}
+\shorthandon{:!}
+
+Capacité linéïque câble coaxial : $100pF.m^{-1}$
+\section{Deuxième ordre}
+\subsection{Passe-bas}
+
+Forme canonique : $\>$ $\>$  $\>$ $\underline{H}(j\omega) = \dfrac{H_{0}}{ 1-(\frac{\omega}{\omega_{0}})^{2}+j\frac{\omega}{Q\omega_{0}} }$\\
+
+
+Pulsation de résonance par étude de la dérivée du module :
+
+
+$\>$ $\omega_{r} = \omega_{0}\sqrt{1-\frac{1}{2Q^{2}}} \>$    ssi    $\> Q > \frac{1}{\sqrt{2}}$ $\>$ $\>$ $\>$ $\>$ $\>$ $\>$ $\>$ 
+on a : $\Phi\in[0,-\pi]$
+
+\subsection{Passe-haut}
+
+Forme canonique :$\>$ $\>$ $\>$ $\underline{H}(j\omega) = \dfrac{H_{0}(-(\frac{\omega}{\omega_{0}})^{2})}{ 1-(\frac{\omega}{\omega_{0}})^{2}+j\frac{\omega}{Q\omega_{0}} }$\\
+
+
+Pulsation de résonance par étude de la dérivée du module :
+
+
+$\>$ $\omega_{r} = \frac{\omega_{0}}{\sqrt{1-\frac{1}{2Q^{2}}}} \>$    ssi    $\> Q > \frac{1}{\sqrt{2}}$ $\>$ $\>$ $\>$ $\>$ $\>$ $\>$ $\>$ $\>$ $\>$ $\>$ $\>$ $\>$ 
+on a : $\Phi\in[\pi,0]$
+
+
+\subsection{Passe-bande}
+
+Forme canonique :
+
+$\>$ $\underline{H}(j\omega) = \dfrac{H_{0}((\frac{\omega}{Q\omega_{0}}))}{ 1-(\frac{\omega}{\omega_{0}})^{2}+j\frac{\omega}{Q\omega_{0}} } 
+= \dfrac{H_{0}}{1 + jQ(\frac{\omega}{\omega_{0}}-\frac{\omega_{0}}{\omega})} $ \\
+
+
+Pulsation de résonance par résolution d'équation de degré 4 obtenue par dérivation du module de la seconde expression :
+
+
+$\>$ $\omega_{r} = \dfrac{\omega_{0}}{2Q}( \pm 1 + \sqrt{1+4Q^{2}} )$  $\>$ de plus : $\>$ $\Delta\omega=\dfrac{\omega_{0}}{Q}$ et $\Phi\in[\frac{\pi}{2},-\frac{\pi}{2}]$
+
+\subsection{Coupe-bande}
+
+Forme canonique :
+
+$\>$ $\underline{H}(j\omega) = \dfrac{H_{0}(1-(\frac{\omega}{\omega_{0}})^{2})}{ 1-(\frac{\omega}{\omega_{0}})^{2}+j\frac{\omega}{Q\omega_{0}} } 
+= \dfrac{H_{0}}{1 + j\frac{x}{Q(1-x^{2})}} $ avec 
+$ x = \frac{\omega}{\omega_{0}}$ \\
+
+
+Étude de la phase, discontinue en 0, par la seconde expression :
+
+
+$\>$ $tan(\Phi)=\dfrac{x}{Q(1-x^{2})}$ avec $\Phi\in[-\frac{\pi}{2},\frac{\pi}{2}]$
+
+
+\section{Décomposition de Fourier}
+\subsection{Décomposition}
+
+$s(t) = A_{0} + \sum\limits_{k=1}^{+\infty} {A_{k} cos(k \omega t)} + \sum\limits_{k=1}^{+\infty} {B_{k} sin(k \omega t)}$\\
+
+avec : $A_{k} = \frac{2}{T} \int_{t_{0}}^{t_{0}+T} s(t) cos(k \omega t) \, \mathrm{d}t$   $\>$ $\>$ $\>$  $\>$ s impaire $\Rightarrow A_{k} = 0 $
+
+ $\>$ $\>$ $\>$ $\>$ $\>$ $B_{k} = \frac{2}{T} \int_{t_{0}}^{t_{0}+T} s(t) sin(k \omega t) \, \mathrm{d}t$  $\>$  $\>$ $\>$ $\>$ s paire $\Rightarrow B_{k} = 0 $
+ 
+ 
+\subsection{Aspect énergétique}
+
+$S_{RMS}^{2} = \frac{1}{T} \int_{t_{0}}^{t_{0}+T} s^{2}(t)  \, \mathrm{d}t$
+
+Formule de Parceval : $S_{RMS}^{2} = S^{2}_{0} + \frac{1}{2}\sum\limits_{k=1}^{+\infty} {C^{2}_{k}}$
+
+
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+
+\end{multicols*}
+
+\end{document}

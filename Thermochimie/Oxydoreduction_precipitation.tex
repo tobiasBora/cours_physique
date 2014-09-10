@@ -1,0 +1,116 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\setlength{\columnseprule}{0.1pt}
+\part*{Réactions d'oxydo-réduction}
+\section{Demi-équations rédox}
+Partant du couple : Ox/Red (capte/cède), pour équilibrer :
+
+ - équilibrer l'élément principal
+
+ - équilibrer $O$
+
+ - équilibrer $H$ (avec $H^+$ ou $OH^-$ selon la solution)
+
+ - équilibrer les charge avec des électrons
+ 
+ \bigbreak
+ On peut aussi compter le \textbf{nombre d'oxydation} : charge que doit avoir chaque élément principal pour ramener la particule à la neutralité électrique, sachant que : 
+
+ - il faut prendre en compte la charge moléculaire
+
+ - $O$ déséquilibre de 2- et $H$ de 1+
+ \bigbreak
+ Pour l'\textbf{équation complète} : utiliser le ppcm du nombre d'électron des demi-équations.
+
+\section{Constante de réaction}
+
+$$\boxed{K=\dfrac{\prod [Produits]^{\nu_i}}{\prod [Réactifs]^{\mu_i}}}$$
+\section{Formule de Nersnt}
+$$\boxed{E=E^0+\dfrac{0.006}{n_{e^-\>echanges}}log\>\dfrac{[Ox]^{\nu_i}}{[Red]^{\mu_i}}}$$ 
+À l'équilibre $E_{Ox}=E_{Red}$, d'où: $K=10^{\frac{ppcm(n_{Ox},n_{Red})}{0.06}(E^0_{Ox}-E^0_{Red})}$
+
+\section{Autre approche des potentiels}
+
+Pour déterminer un potentiel par combinaison linéaires d'autres potentiel connus :
+
+$\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\boxed{E^0=-\dfrac{\Delta_rG^0}{n\mathcal{F}} = \dfrac{A^0}{n\mathcal{F}}}$ avec $\mathcal{F}=96500C$
+\medbreak
+Ou une constante d'équilibre par :
+$\>\>\>\>\boxed{\Delta_rG^0=-RT\>lnK^0}$
+
+
+\section{Diagramme E-pH de l'eau}
+
+$H_2O \>$(ici $H^+$) oxydant : $\>\>\> H^+ + e^-= \frac{1}{2}H_2$ avec $E^0=0V$
+\smallbreak
+$H_2O$ réducteur : $\>\>\> O_2+4e^-+4H^+=2H_2O$ avec $E^0=1,23V$
+\medbreak
+Autres diagramme pH :
+
+ - droite verticale : écrire $K=fct([H_3O^+]) \>\Rightarrow\>pH=cst$
+ 
+ - droite oblique : écrire la loi de Nernst (pente fonction du $pH$).
+ 
+ 
+\part*{Réactions de précipitation}
+\section{Produit de solubilité}
+
+Réaction : $ AB = A^+ + B^-$. On définit le produit de solubilité :
+
+$$\boxed{K_s=[A^+][B^-]}$$
+
+\medbreak
+Apparition du solide ssi $[A^+][B^-]>K_s$
+
+\section{Hypothèses simplificatrices (à vérifier)}
+- $K < 10^{-3}$ : réaction peu avancée : $\xi\ll C_0 v_0$
+
+- $K > 10^{3}$ : réaction totale : $\xi\simeq C_{0_{limitant}} v_0$
+
+- volume $v\gg v_0$
+
+\vfill
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+\end{document}
+

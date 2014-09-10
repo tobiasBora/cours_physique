@@ -1,0 +1,94 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part*{Dipôle magnétique}
+\section{Moment magnétique. Dipôle magnétique passif}
+ Couple exercé sur une spire de surface $S$ par un champ magnétique :
+ 
+ $\boxed{ \Gamma= \overrightarrow{\mathcal{M}}\wedge\overrightarrow{B_{ext}}}$ avec $\overrightarrow{\mathcal{M}}$ le moment magnétique  : $\boxed{\overrightarrow{\mathcal{M}} = IS\overrightarrow{n}}$
+ 
+ Énergie potentielle magnétique : $E_{p}=-\overrightarrow{\mathcal{M}}\cdot\overrightarrow{B_{ext}}$
+ 
+ \section{Situation active : champ à grande distance}
+$\overrightarrow{A}$ a les même symétries que $\overrightarrow{j}$ donc est
+ $\boxed{\overrightarrow{A(M)}=\dfrac{\mu_{0}\overrightarrow{\mathcal{M}}\wedge\overrightarrow{e_{r}}}{4 \pi r^{2}}}$
+ 
+$\overrightarrow{B}$ avec $\overrightarrow{B}=\overrightarrow{rot}\overrightarrow{A}=\dfrac{\mu_{0}}{4\pi r^{2}}(3(\overrightarrow{\mathcal{M}}\wedge\overrightarrow{e_{r}})\overrightarrow{e_{r}}-\overrightarrow{\mathcal{M}})$
+
+Sur une spire : $\overrightarrow{B_r}=\dfrac{\mu_{0}\cdot(\pi r^{2}I)}{2\pi}\dfrac{sin^{3}\alpha}{r^{3}}$
+
+Expression du champ : 
+$\overrightarrow{B}=$
+\begin{tabular}{|c}
+$\frac{\mu _0}{4\pi }\dfrac{2 \mathcal{M} cos\theta}{r^3}$ \\ 
+
+$\frac{\mu _0}{4\pi }\dfrac{ \mathcal{M} sin\theta}{r^3}$ \\ 
+
+$0$ \\ 
+\end{tabular} 
+
+\section{Force de Laplace}
+
+$\overrightarrow{F_{lap}}=I\overrightarrow{dl}\wedge\overrightarrow{B}$
+
+
+\part*{Dipôle électrostatique}
+
+
+\section{Expression du champ}
+
+$\overrightarrow{E}=-\overrightarrow{grad}V= $
+\begin{tabular}{|c}
+$\frac{1}{4\pi \varepsilon _0}\dfrac{2p cos\theta}{r^3}$ \\ 
+
+$\frac{1}{4\pi \varepsilon _0}\dfrac{p sin\theta}{r^3}$ \\ 
+
+$0$ \\ 
+\end{tabular} 
+\vfill\null
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+% \raggedcolumns
+\end{multicols*}
+
+\end{document}
+

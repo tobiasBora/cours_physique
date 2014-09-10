@@ -1,0 +1,188 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part{Forces centrales}
+\section{Forces centrales}
+\begin{itemize}
+  \item Champ de force : ne dépend que de la position
+  \item Central de centre O : $\overrightarrow{F} = F(M) \cdot \overrightarrow{er}$
+  \item Conservatif : dérive d'une énergie potentielle ($\delta W = -dEp$)
+\end{itemize}
+
+On utilise à la place de la 2e loi de Newton deux intégrales premières.
+\subsection{Conservation du moment cinétique}
+En a immédiatement avec le théorème du moment cinétique (force centrale, O fixe, R galiléen)
+$$\overrightarrow{L}_{O/R} = \overrightarrow{K} = cte$$
+$\hookrightarrow$ Mouvement plan + On a la \textbf{loi des aires} en prennant $||\overrightarrow{L_0}||$ à $t_0$ et à $t$ et en ne considérant que la composante suivant $\overrightarrow{e_r}$ de v :
+
+$$\boxed{C = r^2 \dot{\theta}} \qquad \frac{dS}{dt} = \frac{C}{2}$$
+
+\subsection{Conservation de l'énergie mécanique}
+Le TEM donne $E = cte = E_c + E_p = \frac{1}{2}m(\dot{r}^2 + r^2 \dot{\theta}^2 + Ep(r)$
+
+On remplace les $\theta$ avec la loi des aires, ce qui permet de définir en rassemblant les termes qui ne dépendent que de la position une énergie potentielle efficace. Il suffit alors de tracer sur un graphique la droite $y = E$ et la courbe d'énergie potentielle efficace pour en déduire les mouvements possibles.
+
+\section{Étude du mouvement (force newtonienne}
+On suppose $\overrightarrow{F} = -\frac{K}{r^2}\overrightarrow{e_r}$ ie $E_p = \frac{K}{r}$.
+
+\subsection{Trajectoire circulaire, état lié (K > 0)}
+En utilisant $\overrightarrow{a} = -\frac{v^2}{R}\overrightarrow{e_r} + \frac{dv}{dt}\overrightarrow{e_\theta}$, $\overrightarrow{v} = R \dot{\theta}\overrightarrow{e_\theta} = v \overrightarrow{e_\theta}$ et la 2e loi de Newton projeté sur $e_r/e_\theta$ on montre que $v = \sqrt{\frac{K}{mR}}$ et $v$ constante. (mouvement circulaire uniforme).
+
+\subsection{Cas général}
+
+\subsubsection{Méthode Binet}
+Changement de variable astucieux : $u = \frac{1}{r}$ afin de se débarrasser des dérivées temporelles en $\overrightarrow{v}$ et $\overrightarrow{a}$ (on garde par contre dérivées par rapport à $\theta$ à la physicienne). En décomposant $\overrightarrow{v}$, et à l'aide de la loi des aires on exprime $v$ et $a$ en fonction de $u$ et $\theta$.
+$$\overrightarrow{v} = C (-\frac{du}{d\theta}\overrightarrow{e_r} + u \overrightarrow{e_\theta}) \qquad \overrightarrow{a} = -C^2 u^2 (\frac{d^2 u}{d\theta^2} + u) \overrightarrow{e_r}$$
+
+On injecte dans le $2^e$ loi de Newton, equa diff qu'on résout, puis on repasse à $$r = \frac{1}{A cos(\theta + \phi) + \frac{K}{mC^2}}$$
+
+Mise sous forme canonique : $p = \frac{mC^2}{|K|}$, $\epsilon = \pm 1$ (signe K), $e=\frac{mC^2\epsilon A}{K}$ on a alors
+$$r=\frac{p}{\epsilon + e cos(\theta)}$$
+
+\subsubsection{Vecteur excentricité}
+On remarque que $- \overrightarrow{e_r} = \frac{1}{\dot{\theta}} \frac{\overrightarrow{e_\theta}}{dt}$, on injecte dans 2e LN, loi des aires, résout : $\overrightarrow{v} = \frac{K}{mC}(\overrightarrow{e_\theta} + \overrightarrow{cte})$ (on nomme $\overrightarrow{e}$ cette constante). On projette sur $\overrightarrow{v} \cdot \overrightarrow{e_\theta} = r$ : on retrouve $r = \dfrac{1}{\frac{K}{mC^2}(1+\overrightarrow{e}\cdot \overrightarrow{e_\theta})}$ qu'on met sous la forme canonique comme avec Binet (quitte à faire une rotation (Ox,Oy) pour avoir $e > 0$).
+
+\subsubsection{Invariant de Runge-Lenz (ou vecteur de Laplace)}
+
+On pose astucieusement $$\overrightarrow{R} = \overrightarrow{v} \wedge \overrightarrow{L_0} - K \overrightarrow{e_r}$$
+
+On montre alors que $\frac{d \overrightarrow{R} }{dt} = 0$ (développer dérivé, remplacer $\frac{dv}{dt} $ par $\overrightarrow{a} $, utiliser $\frac{d \overrightarrow{L_0} }{dt} = 0$, et tout mettre en fonction de $\overrightarrow{e_\theta}$).
+
+Projecter alors $\overrightarrow{R}$ sur $\overrightarrow{e_r} $, dans le produit vectoriel faire cycle pour sortir $\overrightarrow{L_0} = mC \overrightarrow{e_z} $. On trouve
+$$\overrightarrow{R} \cdot \overrightarrow{e_r} = \frac{mC^2}{r} - K$$
+
+On place $e_x$ suivant $\overrightarrow{R}$ : $\overrightarrow{R} \cdot \overrightarrow{e_r} = R cos(\theta)$ => on isole r, et mise sous forme canonique (cf Binet).
+
+\subsection{Expression E}
+
+On montre (horrible avec Binet, avec le vecteur excentricité $\overrightarrow{e} = -\overrightarrow{e_\theta} + \frac{mC}{K} \overrightarrow{v} $ en calculant $\overrightarrow{e} \cdot \overrightarrow{e} $) que
+$$E = \frac{K^2}{2mC^2} (e^2 - 1)$$
+
+On montre, avec plein d'égalités sur les coniques que 
+
+$\bullet$ Si $ K < 0 $ (répulsif) alors $E = \frac{|K|}{2a} > 0$ (hyperbole, a étant le demi grand axe).
+
+$\bullet$ Si $ K > 0 $ (attractif) alors
+\begin{itemize}
+  \item $E = \frac{K}{2a} > 0$ (hyperbole)
+  \item $E = 0 $ (parabole)
+  \item $E = \frac{-K}{2a} < 0$ (ellipse)
+\end{itemize}
+
+\section{Méthode}
+Les formules utiles pour déterminer la trajectoire sont :
+$$C = r^2 \dot{\theta} $$
+À partir de $C$ :
+$$p = \frac{mC^2}{|K|} $$
+À partir de $E$ :
+$$a = \frac{|K|}{2|E|}$$
+À partir de $C$ et de $E$ :
+$$e^2 = 1 + \frac{2mC^2E}{K^2}$$
+
+\section{Applications}
+\subsection{Lois de Kepler}
+\textbf{1e loi} : Trajectoire = ellipse, soleil = foyer
+
+\textbf{Loi des aires} : Aire balayée par le rayon vecteur constante
+
+\textbf{3e loi} : $\displaystyle \frac{T^2}{a^3} = \frac{4\pi^2}{G \cdot M_s} $ (on le retrouve avec le cercle, $a$ demi grand axe)
+
+\subsection{Satellites}
+Vitesse circulaire : $v_{circ}=\sqrt{\frac{G \cdot M_T}{r_0} }$ (PFD projeté, $\overrightarrow{r} \perp \overrightarrow{v} $)
+
+Vitesse libération (Cas limite, $E=0$) : $\frac{1}{2} m v_0^2 - G \frac{m M_T}{r_0} \ge 0$ ie $v_{lib} = \sqrt{\frac{2GM_T}{r_0} }$
+
+\textbf{Géostationnaire} : $r_0 = \left( \frac{GM_T}{\omega^2} \right)^{1/3}$
+
+\section{Les coniques}
+
+\subsection{Général}
+Il y a un document avec des dessins au nom de conique. Si on note H le projeté sur la droite directrice,
+$\frac{MF}{MH} = e$
+\begin{itemize}
+  \item $e<1$ : ellipse
+  \item $e=1$ : parabole
+  \item $e>1$ : hyperbole
+  \item $e=0$ : cercle
+\end{itemize}
+Les sommets sont les points d'intersection avec la droite Ox notés A et A'. a est la distance OA, b est la distance OB, p la distance entre F et le point à la verticale et c est la distance OF. $\theta$ est l'angle ($e_x$, FM), et $u$ est l'angle ($e_x$, OM).
+
+\subsection{Ellipse}
+B est la position d'abscisse la plus haute. On a a = OA = FB.
+\begin{center}
+Equation polaire : $r(\theta) = \dfrac{p}{1+e cos(\theta)} $\\
+$r_A = \dfrac{p}{1+e} \qquad r_A' = \dfrac{p}{1-e} $\\
+$a = \dfrac{p}{1-e^2} $\\
+$c=ea$\\
+$a^2 = b^2 + c^2$ (triangle rectangle OFB car on a alors a = FB)\\
+$p=\dfrac{b^2}{a}$\\
+$\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$\\
+$r=a(1-e cos(u))$.
+\end{center}
+
+\subsection{Parabole}
+Equation polaire : $r(\theta) = \dfrac{p}{1+e cos(\theta)} $\\
+$r_A = \dfrac{p}{2} $
+Equation cartésienne :
+$$y^2 = 2px$$
+\subsection{Hyperbole}
+On note B le projeté orthogonal de F sur la droite asymptotique. On retrouve alors a = OA = OB. On a également en notant G le point à la verticale de F, b = FG = FB.\\
+
+Equation polaire : pour la première branche $r(\theta) = \dfrac{p}{1+e cos(\theta)} $ ($|\theta| < arccos(-1/e)$) et pour la deuxème $r(\theta) = \dfrac{p}{e cos\theta - 1} $ ($|\theta| < arccos(1/e)$)
+\begin{center}
+$r_A = \dfrac{p}{1+e} \qquad r_A' = \dfrac{p}{e-1} $\\
+$a = \dfrac{p}{e^2 - 1}$\\
+$c=ea$\\
+$c^2 = a^2 + b^2$\\
+$p = \dfrac{b^2}{a} $
+\end{center}
+$$\text{Equation cartésienne : } \dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1$$
+
+\vfill\null
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+% \raggedcolumns
+\end{multicols*}
+
+\end{document}
+

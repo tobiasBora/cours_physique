@@ -1,0 +1,183 @@
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+\begin{document}
+
+% Pour avoir deux colonnes
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part*{Électromagnétisme}
+\section{Équations de Maxwell}
+
+Maxwell-Faraday : $\> \> \overrightarrow{rot}\overrightarrow{E} = -\dfrac{\partial \overrightarrow{B}}{\partial t}$ 
+
+Maxwell-Gauss : $\> \> \> \> \> \> div\overrightarrow{E} = \dfrac{\rho}{\epsilon_{0}}$ 
+
+Maxwell-Ampère : $  \> \>\overrightarrow{rot} \overrightarrow{B} = \mu_{0} \overrightarrow{j} + \mu_{0} \epsilon_{0} \dfrac{\partial \overrightarrow{E}}{\partial t} $ avec $\mu_{0}\epsilon_{0}=\dfrac{1}{c^{2}}$
+
+Maxwell-flux : $\> \> \> \> \> \> \> \> \> \> div\overrightarrow{B} = 0$
+
+
+\section{Conséquences}
+\subsection{Outils de démonstration}
+
+Théorème de Green-Ostrogradsky : 
+
+$ \> \> \> \> \setbox0=\hbox{$\displaystyle \int\!\!\!\!\!\int$}
+\setbox1=\hbox to \wd0{\hfill$\bigcirc$\hfill}
+\setbox0=\hbox to \wd0{\copy0\hss\copy1}
+\mathop{\copy0} _{S} \overrightarrow{X} (M) \cdot \overrightarrow{dS_{ext,M}} = \displaystyle{\iiint_\tau div \overrightarrow{X} (P) d\tau_{P}}
+$
+
+Théorème de Stokes : $\> \> \displaystyle{\oint_C \overrightarrow{X}\cdot\overrightarrow{dl}} = \displaystyle{\iint_S \overrightarrow{rot}\overrightarrow{X}\cdot\overrightarrow{dS}}$
+
+\subsection{Théorème de Gauss}
+
+Étude des invariances et symétries de la distribution de charge.
+
+Il faut définir une surface de Gauss : $\> \> \boxed{\setbox0=\hbox{$\displaystyle \int\!\!\!\!\!\int$}
+\setbox1=\hbox to \wd0{\hfill$\bigcirc$\hfill}
+\setbox0=\hbox to \wd0{\copy0\hss\copy1}
+\mathop{\copy0} _{S} \overrightarrow{E}\cdot\overrightarrow{dS_{ext}} = \dfrac{Q_{int}}{\epsilon_{0}}}$
+
+\subsection{Théorèmes d'Ampère}
+
+Étude des invariances et symétries de la distribution de courant.
+
+Il faut définir un contour d'Ampère : $\boxed{\displaystyle{\oint_C \overrightarrow{B}.\overrightarrow{dl}} = \mu_{0}I_{enlace}}$
+
+
+\section{Potentiel}
+\subsection{Potentiel électrique}
+
+
+$\boxed{dV = -\overrightarrow{E}.\overrightarrow{dl}}$ et $\boxed{\overrightarrow{E}=-\overrightarrow{grad}V}$ , d'où :
+
+$\cdot$ $\overrightarrow{E}$ est perpendiculaire aux surfaces équipotentielles.
+
+$\cdot$ Le potentiel V décroit le long des lignes de champ.
+
+$\cdot$ Il n'y a pas d'extremum de potentiel en un lieu vide de charge.
+
+Théorème de Poisson : $\boxed{\Delta V + \dfrac{\rho}{\epsilon_{0}}=0}$
+
+\subsection{Potentiel vecteur}
+
+$\overrightarrow{B}=\overrightarrow{rot}\overrightarrow{A}$ avec la jauge de Coulomb : $div\overrightarrow{A}=0$
+
+$\overrightarrow{E}=-\dfrac{\partial\overrightarrow{A}}{\partial t}-\overrightarrow{grad}V$
+
+Théorème de Poisson : $\Delta\overrightarrow{A}+\mu_{0}\overrightarrow{j}=\overrightarrow{0}$
+
+\section{Équations de passage}
+
+\textbf{Dans le cas d'une modélisation surfacique, les conditions de passage se substituent aux équations de Maxwell.} 
+
+$\>\> \>\>\> \>\>\> \>\boxed{\overrightarrow{E_{2}}-\overrightarrow{E_{1}}=\dfrac{\sigma}{\epsilon_{0}}\overrightarrow{N_{12}} \> \> \> \> et \> \>\> \> \overrightarrow{B_{2}}-\overrightarrow{B_{1}}=\mu_{0}\overrightarrow{j}\wedge\overrightarrow{N_{12}} }$
+
+
+
+\section{Expression de j}
+
+$\overrightarrow{j}=nq\overrightarrow{v}$ ou $\overrightarrow{j}=\rho\overrightarrow{v} \> \> \> \> \> \> \>$ où $ \> \> \> \> \> \> \>I=\displaystyle\iint_S \overrightarrow{j}.\overrightarrow{dS}$
+
+$\boxed{div\overrightarrow{j} + \dfrac{\partial\rho}{\partial t} = 0}$
+
+\textbf{Loi d'Ohm locale :} $\boxed{\overrightarrow{j}=\gamma\overrightarrow{E}}$ $\Rightarrow R=\dfrac{1}{\gamma}\dfrac{l}{S}=r\dfrac{l}{S}$
+
+
+\section{Aspects énergétiques}
+
+\subsection{Puissance cédée à la matière}
+
+$\mathscr{P}_{v}=\overrightarrow{j}.\overrightarrow{E}$
+
+\subsection{Densité d'énergie électromagnétique}
+
+$\omega_{em}=\dfrac{\epsilon_{0}E^{2}}{2}+\dfrac{B^{2}}{2\mu_{0}}$
+
+\subsection{Vecteur de Poynting}
+
+$\boxed{\overrightarrow{\Pi}=\dfrac{\overrightarrow{E}\wedge\overrightarrow{B}}{\mu_{0}}}$  $\> \>$
+
+ Équation locale énergétique : $\dfrac{\partial\omega_{em}}{\partial t} = -\overrightarrow{j}.\overrightarrow{E}-div \overrightarrow{\Pi}$
+ 
+ 
+\section{Condensateurs}
+
+\subsection{Pression et force électrostatique}
+
+Pression : $P_{e}=\dfrac{\sigma^{2}}{2\epsilon_{0}}$  $\> \> \> \> \> \> \> \>$ Force : $\overrightarrow{F}=\dfrac{\epsilon_{0}U^{2}S}{2e^{2}}\overrightarrow{e_{z}}$
+
+\subsection{Expressions}
+
+$Q=CU=C(V_{2}-V_{1})$  $\> \> \>$ Méth$\theta$ : Calcul de V/E puis de $\sigma$/Q
+
+Condensateur plan : $C=\dfrac{S\epsilon_{0}}{e}$
+
+Condensateur cylindrique : $C=\dfrac{2\pi H \epsilon_{0}}{ln(\frac{R_{2}}{R_{1}})}$
+
+Condensateur sphérique : $C=4\pi\epsilon_{0}\dfrac{R_{1}R_{2}}{R_{2}-R_{1}}$
+
+
+\subsection{Aspects énergétiques}
+
+$\varepsilon_{c}=\frac{1}{2}CU^{2}$ $\> \> \> \> \> \> \>$ Expression locale (volumique) : $\omega_{e}=\frac{1}{2}\epsilon_{0}E^{2}$
+ 
+
+\section{Calcul direct}
+\subsection{Champ électrique et potentiel}
+
+$\overrightarrow{E} = \displaystyle\iiint_V \dfrac{\rho}{4\pi\epsilon_{0}}\dfrac{\overrightarrow{PM}}{PM^{3}} d\tau \> \> \> \> \> \> \> \> \> \>$     $\overrightarrow{V} = \displaystyle\iiint_V \dfrac{\rho}{4\pi\epsilon_{0}}\dfrac{1}{PM} d\tau$
+
+\subsection{Champ magnétique}
+$\overrightarrow{B} = \displaystyle\iiint_V \dfrac{\mu_{0}}{4\pi}\dfrac{\overrightarrow{j}\wedge\overrightarrow{PM}}{PM^{3}}$   
+ 
+ 
+\section{Résultats classiques}
+
+\subsection{Électrostatique}
+
+Segment de fil chargé : $E_{y}(M)=\dfrac{\lambda sin(\alpha_{m})}{2 \pi \epsilon_{0} r}$
+
+Anneau chargé en son axe : $E_{z}(M)=\dfrac{\lambda}{2 \epsilon_{0}}\dfrac{a \> z}{(a^{2}+z^{2})^{3/2}}$
+
+Disque chargé en son axe : $E_{z}(M)=\dfrac{\sigma z}{2 \epsilon_{0}}(\dfrac{1}{|z|}-\dfrac{1}{\sqrt{a^{2}+z^{2}}})$
+
+
+\subsection{Magnétostatique}
+
+Segment de fil : $B_{\theta}(M)\theta=\dfrac{\mu_{0}Isin(\alpha_{m})}{2\pi r}$
+
+\textbf{Spire circulaire :} $B_{z}=\dfrac{\mu_{0}I}{2}\dfrac{a^{2}}{(a^{2}+z^{2})^{3/2}}=\dfrac{\mu_{0}I}{2a}sin^{3}\alpha$
+
+Solénoïde en son axe : $B_{z}=\mu_{0}nI$
+
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+\end{multicols*}
+
+\end{document}

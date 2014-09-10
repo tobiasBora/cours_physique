@@ -1,0 +1,111 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part*{Dynamique}
+\section{Torseurs}
+Soit un ensemble de points $M_i$ et des vecteurs $\overrightarrow{q_i}$ s'appliquant en ces points, alors on appelle torseur associé l'objet $[q]_A=\{\overrightarrow{R},\overrightarrow{M_A}\}$ avec $\overrightarrow{R}=\sum_i\overrightarrow{q_i}$ la résultante, et $\overrightarrow{M_A}=\sum_i\overrightarrow{AM_i}\wedge\overrightarrow{q_i}$ le moment résultant en A.
+
+Le torseur cinétique est $\{\overrightarrow{P}, \overrightarrow{L_A}\}$ et le torseur dynamique $\{\overrightarrow{D},\overrightarrow{\delta_A}\}$.
+Cas d'un glisseur (Champs uniforme. Ex: poids) : $\{\overrightarrow{F}, \overrightarrow{M_A}\}$ avec $\overrightarrow{F} = m\overrightarrow{D_m}$ ($\overrightarrow{D_m}$ étant la valeur massique du champ) et $\overrightarrow{M_A}=\overrightarrow{AG}\wedge\overrightarrow{F}$.
+\section{Référentiel galiléen}
+\subsection{Postulat de la dynamique}
+En un point A quelconque, le torseur dynamique $\{\overrightarrow{D}, \overrightarrow{\delta_A}\}$ est égal au torseur des actions mécaniques extérieures $\{\overrightarrow{F_{ext}}, \overrightarrow{M_{A,ext}}\}$.\\
+D'où le théorème de la résultante dynamique (Newton) : $\overrightarrow{D} = \overrightarrow{F_{ext}}$ (1) \\
+et le théorème du moment dynamique $\overrightarrow{\delta_A}=\overrightarrow{M_{A,ext}}$ (2).
+
+\subsection{Théorèe du centre d'intertie (TCI)}
+Conséquence directe de (1), aussi appelé th. de la quantité de mouvement, th. de la résultante cinétique, 2e loi de Newton...  :
+$$\boxed{\left( \frac{d\overrightarrow{P}}{dt} \right)_R = m\overrightarrow{a_{G/R}} = \overrightarrow{F_{ext}}}$$
+\subsection{Théorème du moment cinétique (TMC)}
+Conséquence de (2) : $\overrightarrow{M_{A,ext}} = \left(\frac{d\overrightarrow{L_A}}{dt}\right)_R - m\overrightarrow{v_{G/R}}\wedge\overrightarrow{v_{A/R}}$ que l'on peut simplifier lorsque $A$ est fixe ou si $A=G$ en 
+$$\boxed{ \left(\frac{d\overrightarrow{L_A}}{dt}\right)_R = \overrightarrow{M_{A,ext}}}$$
+
+Ainsi dans le cas d'un système isolé, $\overrightarrow{P}=m\overrightarrow{v_{G/R}}$ et $\overrightarrow{L_A}$ sont constantes.
+\subsection{Méthode}
+Choix référentiel, définition systèmes, bilan actions, Choix des variables/projections, détermination liens entre variables, théorèmes généraux, projection, résolution.
+
+\section{Non galiléen}
+Loi de composition des vitesses : 
+$$\boxed{\left( \frac{d\vec{B}}{dt} \right )_{(R)}=\left ( \frac{d\vec{B}}{dt}  \right )_{(R')} + v_{(R'/R)} + \vec{\Omega}_{(R'/R)}\wedge \vec{B}}$$
+
+En partant de $\overrightarrow{a_{M/R}} = \overrightarrow{a_{M/R'}} + \overrightarrow{a_{e}}(M) + \overrightarrow{a_c}(M)$, il apparaît alors 2 nouvelles forces fictives :
+$$\boxed{\overrightarrow{a_{G/R'}} = \overrightarrow{F_{ext}} + \overrightarrow{F_{ie}}(G) + \overrightarrow{F_{ic}(G)}}$$
+Avec
+\begin{itemize}
+\item $\overrightarrow{F_{ic}}(G) = -m\overrightarrow{a_c}(G)$ et $\overrightarrow{a_c}(M) = 2\overrightarrow{\Omega_{R'/R}}\wedge\overrightarrow{v_{M/R'}}$
+\item $\overrightarrow{F_{ie}(G)} = -m\overrightarrow{a_e}(G)$ force d'inertie d'entraînement. Pour obtenir $\overrightarrow{a_e}(M)$ on calcule l'accélération par rapport à $R$ du point coïncidant à $M$ (ou formule bourrin page suivante).
+
+Formule bourrin : $$\vec{a}_e=\vec{a}(A)_{(R)}+\left ( \frac{d\vec{\Omega}_{(R'/R)}}{dt} \right )_{(R)}\wedge \vec{AM}+\vec{\Omega}_{(R'/R)}\wedge(\vec{\Omega}_{(R'/R)}\wedge\vec{AM})$$
+\end{itemize}
+
+Dans le cas d'une translation, tous les termes liés à la force de Coriolis sont nuls, et comme l'action d'entrainement est un glisseur la force $\overrightarrow{F_{ie}}$ a pour point d'application G et $\overrightarrow{M_{A',ie}} = \overrightarrow{A'G}\wedge\overrightarrow{F_{ie}}(G)$. (Ce qui est faux dans le cas général, on doit repasser par l'intégration).
+
+\section{Systèmes ouverts}
+Il faut se ramener à un système fermé. Pour cela, on travaille sur des intervalles de temps epsilonesques en déterminant $\overrightarrow{P}(t)$ et $\overrightarrow{P}(t+dt)$ puis en utilisant le PFD sur $\frac{\overrightarrow{P}(t+dt) - \overrightarrow{P}(t)}{dt} = \overrightarrow{F_{ext}}$.
+
+\part{Frottements : lois de Coulomb}
+On distingue deux cas:
+\begin{itemize}
+
+\item $\overrightarrow{v_g} \neq \overrightarrow{0}$ (Cas du glissement) : alors on a $\overrightarrow{T}$ et $\overrightarrow{v_g}$ colinéaires et de sens opposés, et on a
+$$\boxed{||\overrightarrow{T}|| = f_c||\overrightarrow{N}||}$$ ($f_c$ coefficient de frottement cinématique (ou dynamique)). \\
+
+\item $\overrightarrow{v_g} \neq \overrightarrow{0}$ (vitesse de glissement nulle) alors $\overrightarrow{T}$ est de direction inconnue à priori (à déterminer avec le TCI(=PFD) par exemple), on sait seulement que $$\boxed{||\overrightarrow{T}|| \leq f_c||\overrightarrow{N}||}$$
+
+\end{itemize}
+
+On peut alors définir le cône de frottement tel que l'objet soit immobile ssi la force de frottement est à l'intérieur d'un cône d'angle $\alpha$ (ie $tan(\alpha) \leq \alpha$).
+
+\part{Chocs}
+Avec le PFD qu'on intègre, on montre que lorsque le choc se déroule dans un temps très court la quantité de mouvement $\overrightarrow{P}$ est constante (même lorsqu'il y a des forces extérieures durant un temps court pendant le choc).\\
+
+Un autre exercice sympa peut être proposé qui ``redémontre'' les lois de Newton : on suppose que l'on a deux espaces ayant deux énergies potentielles $E_{p_1}$ et $E_{p_2}$, avec une particule qui passe de l'espace 1 à l'espace 2. Il suffit alors de remarquer que $\overrightarrow{F}=-\overrightarrow{grad}(E_p)$, de remarquer que sur deux axes $F_x=F_z=0$, et donc que la composante de la vitesse dans ces directions est constante : on viens de montrer $v_1sin(i_1)=v_2sin(i_2)$ !
+
+\vfill
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+% \raggedcolumns
+\end{multicols*}
+
+\end{document}
+

@@ -1,0 +1,183 @@
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+\usepackage[europeanvoltage]{circuitikz}
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+\begin{document}
+
+% Pour avoir deux colonnes
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part*{Ondes électromagnétique dans le vide}
+\section{Propagation}
+Dans le vide, $\overrightarrow{j} = \overrightarrow{0}$ et $\rho = 0$. On montre alors avec la formule de $rot(rot())$ que $\overrightarrow{E}$ et $\overrightarrow{B}$ vérifient l'équation de D'Alembert, ie avec
+$\Box = \Delta - \dfrac{1}{c^2}\dfrac{\partial^2}{\partial t^2}$ on a $\Box\overrightarrow{E}=\overrightarrow{0}$ et $\Box\overrightarrow{B}=\overrightarrow{0}$
+
+\section{Onde place}
+\subsection{Structure de l'onde}
+Onde place \textbf{progressive} dans le vide (un $-$ apparaît pour $\overrightarrow{B^-}$). Relation de structure:
+$$\boxed{\overrightarrow{B^+} = \frac{\overrightarrow{u}\wedge\overrightarrow{E^+}}{c}}$$
+On a aussi $(\overrightarrow{E},\overrightarrow{B},\overrightarrow{u})$ trièdre orthogonal direct.
+\subsection{OPPH}
+Dans le cas d'une OPPH, par un calcul direct on montre que $$\boxed{\overrightarrow{\nabla} = -j\overrightarrow{k}} \text{ et ainsi } \boxed{\overrightarrow{B^+} = \dfrac{\overrightarrow{k}\wedge\overrightarrow{E^+}}{w}}$$
+Avec la loi de Maxwell-Ampère, on a ainsi $\overrightarrow{E}=-\dfrac{c^2}{\omega}\overrightarrow{k}\wedge\overrightarrow{B}$.\\
+Pour obtenir la \textbf{relation de dispertion de l'onde} ie $f/k=f(\omega)$ on injecte dans l'équation de D'Alembert en utilisant $\Delta = \nabla^2 = -k^2$. On trouve $\left(\frac{\omega}{c}\right)^2=k^2$.
+\subsection{Ordres de grandeurs des longeurs d'ondes}
+
+\begin{tabular}{|l|l|l|}
+\hline
+Fréquence & Longueur d'onde & Domaine \\
+\hline
+150 kHz - 3 GHz & 10 cm - 2 km & Onde radio \\
+3 GHz - 300 GHz & 1 mm - 10 cm  & micro-onde\\
+300 GHz - $4,3\cdot 10^{14}$ Hz & 0,7 $\mu$m à 1 000 $\mu$m & Infrarouge\\
+$10^{14}$ Hz  & 400 nm - 900 nm & Visible\\
+$10^{14}$ Hz à $10^{17}$ Hz & 10 nm à 400 nm & Ultraviolet\\
+$10^{17}$ Hz à $10^{19}$ Hz & $10^{-11}$ m à $10^{-8}$ m & Rayon X\\
+$10^{19}$ Hz à $10^{22}$ Hz & $10^{-14}$ m à $10^{-11}$ m & Rayon gamma\\
+\hline
+\end{tabular}
+
+\subsection{Energie}
+Dans le cas d'une OPPH on a $B=\frac{E}{c}$ donc la densité volumique d'énergie est $\boxed{\omega_e = \epsilon_0\overrightarrow{E}^2=\frac{\overrightarrow{B^2}}{\mu_0}}$ (équirépartition $\overrightarrow{E}$ et $\overrightarrow{B}$).
+
+Valeur moyenne : $\langle\omega_e\rangle=\frac{\epsilon_0(E_{01}^2 + E_{o2}^2)}{2}$ (calcul direct ou avec $\langle\omega_e\rangle = \frac{1}{2}\epsilon_0(\underline{\overrightarrow{E}}\cdot\underline{\overrightarrow{E}}^*)$).
+
+Vecteur de Poynting : $\overrightarrow{\Pi}= c\epsilon_0\overrightarrow{E}^2\overrightarrow{u}$ et $\langle\overrightarrow{\Pi}\rangle = \frac{1}{2}c\epsilon_0(E_{01}^2 + E_{02}^2)$
+
+\section{Polarisation OPP}
+Plan de polarisation contient $\overrightarrow{E}$ et $\overrightarrow{k}$, polarisable ssi direction de $\overrightarrow{E}$ est prévisible.
+\subsection{OPPH}
+\textbf{Polarisation rectiligne} : $\overrightarrow{E}$ a une direction fixe.
+
+\textbf{Polarisation elliptique} : $\overrightarrow{E}$ décrit une ellipse : inters. ac bord + sens rotation (dérive $E_y$ + évalue au point d'inters. ac bord droit) => sens trigo : onde polarisée gauche ($sin(\phi)$ > 0). (on regarde l'onde qui se propage vers soi). Dans le cas circulaire, on peut aussi se ramener à la forme $E_x = cos(...)$ et $E_y = \pm sin(...)$.
+Loi de Malus : $\boxed{I=I_0cos^2(\alpha)}$ (Polariser onde rectiligne, via $\langle\Pi\rangle$)
+
+\part*{Réflexion et guidage d'une onde}
+\section{Réflexion OPPH sur conducteur parfait en incidence normale}
+Conducteur parfait ssi $\gamma = 0$. On a alors $\overrightarrow{E}=\overrightarrow{0}$ (sinon $\overrightarrow{j}=\infty$), $\rho=0$(MG), $\overrightarrow{B}=0$ (MF) en l'absence de champ statique, $\overrightarrow{j}=0$ (MA).
+
+\textbf{Méthode} : Calculer les conditions de passage, puis écrire l'onde réfléchie $\overrightarrow{E_r}$ sous sa forme générale, puis la déterminer avec $\overrightarrow{E_i}+\overrightarrow{E_r}=\overrightarrow{E_{passage}}$. La charge de surface est nulle.
+
+On trouve $\overrightarrow{E_r}=-\overrightarrow{E_0}e^{i(\omega t + \frac{\omega}{c}z)}$. L'onde résultante est une onde stationnaire telle que $\overrightarrow{E}$ et $\overrightarrow{B}$ sont en quadratude spatiale et temporelle (ne pas oublier le $i$ qui arrive dans la formule de Gauss avec les sinus).
+
+\textbf{Densité de courant} : Avec $\overrightarrow{B}(z=0^-) = \mu_0\overrightarrow{j_s}\wedge(-\overrightarrow{u_z})$ on trouve facilement $\overrightarrow{j_s}$ en prenant le produit scalaire à gauche par $\overrightarrow{u_z}$ puis en utilisant $\overrightarrow{j_s}\cdot\overrightarrow{u_z}=0$. On trouve $\overrightarrow{j_s}=\frac{2}{c\mu_0}cos(\omega t)\overrightarrow{E_0}$
+
+\subsection{Ondes guidées entre deux plans}
+\textbf{Méthode} : avec quelques suppositions sur $\overrightarrow{E}\perp\overrightarrow{u_z}$, en partant de $div(\overrightarrow{E})=0$ on montre que $E_x=E_z=0$. On souhaite alors exprimer $E_y(x)$, en utilisant \textbf{l'équation de D'Alembert}. On se trouve alors avec une équa diff que l'on peut résoudre, et avec les conditions aux limites ($E_{passage}=0$) on trouve des conditions sur la pulsation. L'équation \textbf{MF} permet ensuite d'avoir $\overrightarrow{B}$. Pour avoir la relation de dispersion, on utilise ce qu'on a fait avant en isolant k, voir en posant $\omega_{cn}=n\pi/a$, ce qui donne $\boxed{k^2=\frac{\omega^2-\omega_{cn}^2}{c^2}}$. Si k est imaginaire, en injectant dans $E$ on trouve une atténuation, alors que si il est réel on a une \textbf{propagation}.
+
+\part*{Propagation plasma dilué (milieu dispersif)}
+
+\textbf{Approximations :} Un plasma est constitué d'ions et d'électrons, comme les ions sont plus massifs, on dit qu'ils sont immobiles, et comme les particules sont non relativistes, un rapide calcul montre que la \textbf{force magnétique est négligeable par rapport à la force électrique}, et on admet que la force de frottement visqueux produit par le plasma sur les électrons est négligeable. 
+
+\begin{itemize}
+\item Pour obtenir $\overrightarrow{j}=\frac{ne^2\overrightarrow{E}}{mi\omega}$ on applique le PFD en supposant que $\frac{d\overrightarrow{v}}{dt}=\omega\overrightarrow{v}$ ($\overrightarrow{v}$ de la même forme que $\overrightarrow{E}$).
+\item On montre avec l'équation de conservation de la \textbf{charge} puis avec $MG$ que $\rho=0$.
+\end{itemize}
+
+\subsection{Determination de B}
+Avec MF, $\overrightarrow{\nabla}=-i\overrightarrow{k}$, et $\frac{\partial B}{\partial t}=i\omega\overrightarrow{B}$ on montre que la relation de structure est la même que dans le vide.
+
+\subsection{Relation de dispersion}
+\textbf{Méthode 1} : $rot(rot())$, puis en remplacant les opérateurs, j, les dérivées, E se simplifie pour laisser place à une solution pas très jolie. Il suffit alors de poser $\omega_p=\sqrt{\frac{ne^2}{m\epsilon_0}}$ on a $k^2=\frac{\omega^2-\omega_p^2}{c^2}$.\\
+
+\textbf{Méthode 2} : On part de MA, on simplifie à droite, puis à gauche on remplace $\overrightarrow{B}=\frac{\overrightarrow{k}\wedge\overrightarrow{E}}{\omega}$, puis formule du double produit vectoriel et $\overrightarrow{E} \perp \overrightarrow{k}$.
+
+Ainsi comme dans la partie précédente, si $\omega < \omega_p$ il ne peut pas y avoir propagation : il y a \textbf{réflexion}.\\
+
+Un milieu est \textbf{dispersif} lorsque $v_\phi$ dépend de $\omega$.
+
+\subsection{Métal et effet de peau}
+
+Avec la bonne vieille méthode des rot(rot()), en supposant $\overrightarrow{j}= \gamma \overrightarrow{E}  \neq 0 $ (avec $\gamma \simeq 10^8 S.M^{-1}$) se ramener à l'équation
+$\Delta \overrightarrow{E} = \mu_0\gamma\frac{\partial \overrightarrow{E}}{\partial t} + \frac{1}{c^2} \frac{\partial \overrightarrow{E}}{\partial t^2}$ puis montrer que le dernier terme est négligeable, ce qui revient à avoir
+$$\boxed{\Delta \overrightarrow{E}=\mu_0\gamma \frac{\partial \overrightarrow{E}}{\partial t}} \textbf{ appelée équation de diffusion.}$$
+
+Il suffit alors de dériver puis simplifier $\overrightarrow{E}$ comme d'habitude, d'isoler $k$ puis de l'injecter dans $\overrightarrow{E}$. La racine fait apparaître une partie imaginaire et une partie réelle représentant la décroissance, de distance caractéristique
+$$\boxed{\delta = \sqrt{\frac{2}{\mu_0\gamma\omega}}}$$
+
+\section{Potentiels retardés}
+
+On montre avec MF et deux trois factorisations que
+$$\overrightarrow{E} = -\frac{\partial \overrightarrow{A}}{\partial t} - \overrightarrow{grad} V$$ (1). En utilisant $rot(rot)$ sur $\overrightarrow{rot}\overrightarrow{B} = \overrightarrow{rot}\overrightarrow{rot}\overrightarrow{A}$, et de l'autre côté en utilisant MA puis (1) sur $\overrightarrow{rot}\overrightarrow{B}$ on montre une formule pas jolie qui se simplifie beaucoup avec la \textbf{jauge de Lorentz} : $div \overrightarrow{A} + \frac{1}{c^2}\frac{\partial V}{\partial t} = 0$. On a alors une équation de Poisson généralisée :
+$$\Box \overrightarrow{A} + \mu_0 \overrightarrow{j}=0$$
+qui se simplifie dans le vide en une équation de D'Alembert :
+$$\Delta \overrightarrow{A} - \frac{1}{c^2}\frac{\partial ^2 \overrightarrow{A}}{\partial t^2} = 0$$
+Et on montre avec MG $\Box V = -\frac{\rho}{\epsilon_0}$ et dans le vide
+$$\Delta V - \frac{1}{c^2} \frac{ \partial ^2 V }{ \partial t^2 } = 0$$
+
+Ce qui donne en forme intégrale
+$$V(P,t) = \frac{1}{4 \pi \epsilon_0}\iiint_\tau \frac{\rho(M,t-\frac{PM}{c})}{PM}d\tau_M$$
+$$\overrightarrow{A}(P,t)=\frac{\mu_0}{4\pi}\iiint_\tau \frac{\overrightarrow{j}(M,t-\frac{PM}{c})}{PM}d\tau$$
+Ce sont les potentiels retardés ou de \textbf{Lienard-Wiechert}.
+
+\subsection{Dipôle oscillant}
+On prend une charge $-q$ immobile en O et en S on place une charge $+q$ animée d'un mouvement sinusoïdal $\overrightarrow{OS}=z_o cos \omega t \overrightarrow{u_z}$. On définit le moment dipolaire des charges $\overrightarrow{p} = q \overrightarrow{OS}$.
+
+\textbf{Les approximations} :
+\begin{itemize}
+  \item \textbf{Approximation dipolaire} : $r>>z_0$
+  \item \textbf{Non relativiste} : $||\overrightarrow{v}|| << c$ ie $z_0 << \lambda$.
+  \item \textbf{Zone de rayonnement} : $r >> \lambda$
+\end{itemize}
+
+Via un calcul direct on montre $\overrightarrow{A}(P,t) = \frac{\mu_0}{4\pi}\frac{\dot{\overrightarrow{p}}(t-\frac{r}{c})}{r}$
+puis la condition de gauge permet d'avoir $V(P,t) = \frac{c^2\mu_0}{4\pi}p_0(\frac{1}{r^2}+\frac{jk}{r})cos \theta e^{j(\omega t - k r)}$.
+
+En utilisant (1) (page gauche) et $\overrightarrow{B} = \overrightarrow{rot}\overrightarrow{A}$ et de lourds DL on montre
+$$\overrightarrow{E(P,t)} = \frac{1}{4\pi\epsilon_0}\frac{\ddot{\overrightarrow{p}}(t-r/c)}{rc^2}sin \theta \overrightarrow{u_\theta} = \overrightarrow{B}(P,t)\cdot c$$
+
+On remarque qu'on a de nouveau la structure d'onde $\overrightarrow{B}=\frac{\overrightarrow{k}\wedge \overrightarrow{E}}{\omega}$ sauf que cette fois $E \sim \frac{1}{r}$ et $B \sim \frac{1}{r}$.
+
+On trouve pour puissance rayonnée
+$$\left< \frac{dP}{d\Omega} \right> = \frac{p_o^2}{32\pi^2\epsilon_0c^3} \omega^4 sin^2 \theta \qquad \left< P \right> = \frac{p_0^2\omega^4}{12\pi\epsilon_0c^3}$$
+
+==> La puissance ne dépend plus de r, et on remarque \textbf{qu'il n'y a pas d'énergie rayonnée dans la direction de $\overrightarrow{p}$ et le facteur en $\omega^4$ est responsable de la couleur du ciel.}
+
+\subsection{Diffusion du rayonnement électromagnétique}
+On étudie la ré-émission d'une onde par les atomes : on est en présence de plusieurs forces sur l'électron :
+\begin{itemize}
+\item électrique $\overrightarrow{F_e}=-e \overrightarrow{E}$
+\item Force de rappel vers position d'équilibre : $\overrightarrow{F_r}=-k \overrightarrow{r}$
+\item Frottement du à l'amortissement : $\overrightarrow{F_v}=-h \overrightarrow{v}$
+\end{itemize}
+
+Et utilisant le PFD on se retrouve sur le cas d'un dipôle oscillant, et on remarque que l'intensité diffusée est inversement proportionnelle à $\lambda^4$, et est rayonnée au maximum suivant la perpendiculaire à la droite ``soleil-atome''.
+
+\subsection{Angle de Brewster}
+Lorsque l'on envoie un faisceau lumineux sur un dioptre, on observe en général une réflexion partielle. Si le faisceau est incliné d'un angle nommé angle de Brewster, la réflexion partielle disparait, à condition que la lumière soit polarisée dans le plan d'incidence. Dans le cas contraire, le faisceau réfléchi est complètement polarisé.
+
+À l'angle de Brewster, le rayon réfracté et la direction attendue pour le rayon réfléchi forment un angle droit.
+
+On trouve alors :
+$\theta_1 = arctan(\frac{n_2}{n_1})$
+
+Explication physique : L'onde incidente va être transférée dans le milieu 2. Cette onde réfractée va donc exiter les atomes perpendiculairement à sa propagation. Or ces atomes étant des dipôles, ils ne pourront pas rayonner dans la direction dans laquelle ils oscillent, c'est à dire suivant la direction de l'onde réfléchie : l'onde réfléchie ne peut être produite, où tout du moins sa composante suivant le plan d'incidance.
+
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+\end{multicols*}
+
+\end{document}

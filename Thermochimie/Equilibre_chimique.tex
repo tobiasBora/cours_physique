@@ -1,0 +1,106 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{mathrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+
+\setlength{\columnseprule}{0.1pt}
+\begin{center}
+\part*{Équilibre chimique}
+\end{center}
+\section{Affinité}
+On pose l'affinité chimique  : 
+
+$$\>\>\>\boxed{A=-\Delta_rG=-\sum \nu_i \mu_i=-\left(\dfrac{\partial G}{\partial\xi}\right)_{T,P}}$$
+\bigbreak
+
+On a alors la relation fondamentale : $\>\boxed{Ad\xi>0}$ ou $\boxed{\Delta_rGd\xi<0}$ qui donne le sens d'évolution de la réaction / l'équilibre.
+
+\bigbreak 
+Expression de A : $\boxed{A(T,P,\xi)=A^0(T)-RT ln Q}$
+
+\section{Équilibre chimique}
+
+À l'équilibre, on a $A=0$, on pose alors $K_0=Q_e$ \textbf{la constante d'équilibre}. Avec $Q=\prod_i a_i^{\nu_i}$. On a alors :
+
+$$\boxed{K^0(T) = exp \left( \dfrac{A^0}{RT} \right)= exp \left( \dfrac{-\Delta_rG^0}{RT} \right)}$$
+
+Mais également, la \textbf{loi d'action des masses} :
+
+$$\boxed{K^0(T)=\prod_i (a_i)_{eq}^{\nu_i}}$$
+
+Il est parfois utile de faire des hypothèses simplificatrices (espèce en excès, très peu concentrée) pour effectuer les calculs plus facilement. Il convient de vérifier ces hypothèse en fin de calcul.
+\bigbreak
+
+\textbf{Relation isobare de Van't Hoff :}
+
+$$\boxed{\dfrac{d}{dT}(ln K^0)=\dfrac{\Delta_rH^0}{RT^2}}$$
+
+\section{Déplacement d'équilibre}
+
+\subsection{Influence de T}
+
+On a $\dfrac{dA}{dT}=\dfrac{\Delta_rH^0}{T}$.
+
+\smallbreak	
+\textbf{Loi de compensation de Van't Hoff :} déplacement de la réaction dans le sens endothermique ($\Delta_rH^0>0$)si T augmente.
+\subsection{Influence de P}
+
+On a $dA=-RT\Delta_r\nu_g \dfrac{dP}{P}$.
+
+\smallbreak	
+\textbf{Loi de compensation de Le Chatelier :}Toute
+augmentation de pression isotherme fait évoluer le système dans le sens d'une diminution de la quantité de gaz.
+
+
+\subsection{Ajout d'un composant}
+
+On écrit $dA=-RT\dfrac{dQ}{Q}$ avec $\dfrac{dQ}{Q}=\sum \nu_i \dfrac{dn_i}{n_i}$
+
+et alors $n_a\rightarrow n_a+dn_a$ 
+
+mais également : $n_{gaz_{tot}}=\dfrac{n_a}{x_a}$ ainsi que : $dn_{gaz_{tot}}=dn_a$
+
+Puis il reste à déterminer le signe de $dA$ en fonction de $x_a$.
+\vfill
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+
+\end{document}
+

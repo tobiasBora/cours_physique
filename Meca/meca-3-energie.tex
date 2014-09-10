@@ -1,0 +1,99 @@
+% Compiler avec
+% latex fig.tex && convert -alpha Remove -resize 800x600 -depth 8 fig.dvi fig3.png
+
+% \documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\documentclass[9pt]{article}
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères franÃ§ais
+\usepackage[francais]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{lipsum}
+
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage[paperwidth=600px,
+            paperheight=450px,
+            top=10px,
+            bottom=10px,
+            left=10px,
+            right=10px]{geometry}
+
+% \usepackage[a4paper]{geometry}% Réduire les marges
+\pagestyle{headings}        % Pour mettre des entÃªtes avec les titres
+                              % des sections en haut de page
+
+% \title{Lorem ipsum}           % Les paramètres du titreÂ : titre, auteur, date
+% \author{Curabitur \and Elementum}
+% \date{}                       % La date n'est pas requise (la date du
+                              % jour de compilation est utilisée en son
+			      % absence)
+
+% \sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+\begin{multicols*}{2}
+\setlength{\columnseprule}{0.1pt}
+\part{Étude énergétique}
+\section{Puissance et travail}
+$$\boxed{P = \overrightarrow{F}\cdot\overrightarrow{v}} \quad \boxed{W_{A \rightarrow B} = \int_A^BPdt = \int_A^B\overrightarrow{F}.d\overrightarrow{l}}$$
+Dans le cas général on montre avec la formule de Varignon :
+$\boxed{P = \overrightarrow{v(A)}\cdot\overrightarrow{F_{ext}} + \overrightarrow{\Omega}\cdot \overrightarrow{M_{a,ext}}}$, ainsi lorsque l'on n'a qu'une force seule $P = \overrightarrow{v(A)}\cdot\overrightarrow{F_{ext}}$  et si l'on n'a qu'un couple $C$, $P = \overrightarrow{\Omega}\cdot\overrightarrow{C}$
+
+\textbf{Solide en rotation} : On montre en exprimant $v=\overrightarrow{OM}\wedge\overrightarrow{\omega}$ puis en faisant une permutation produit scalaire/produit vectoriel que $\boxed{P = \overrightarrow{\omega}\cdot\overrightarrow{M_O} = \omega M_\Delta}$ et $\boxed{W_{\theta_1 \rightarrow \theta_2} = \int_{\theta_1}^{\theta_2}M_\Delta d\theta}$
+
+\textbf{Forces d'interties} : $P_{f_ic} = 0$ et on doit calculer $P_{f_{ie}}$ à ma main. Cas particulier : $R'$ en translation/R : $P_{f_{ie}} = -\overrightarrow{a_{O'/R}} \cdot \overrightarrow{P_{R'}}$ (nul lorsque l'on est dans le référentiel du centre d'inertie).
+
+\textbf{Forces intérieures} : $\delta W_{int} = \sum_{i<j} \overrightarrow{f_{i \rightarrow j}} \cdot \overrightarrow{dM_iM_j}$.
+
+\textbf{Actions de contact} : $P_{contact} = \overrightarrow{T_{2 \rightarrow 1}} \cdot \overrightarrow{v_{g,S_2/S_1}}$ (toujours résistive). \textit{Attention : Dans les cas d'un Roulement Sans Glissement, $P_{contact} = 0$ ! (très utile)}
+
+\section{Liaisons}
+\textbf{Liaison glissière} : $P=\overrightarrow{T}\cdot\overrightarrow{v_g}$ : elle est nulle si $\overrightarrow{T} = \overrightarrow{0}$.\\
+\textbf{Liaison rotule} : $P = \overrightarrow{M_{contact/A}} \cdot \overrightarrow{\omega_{S_1/S_2}}$\\
+\textbf{Liaison pivot} : $P = M_\Delta \omega_{S_1/S_2}$
+
+\footnotesize{Fiches créés par Alexis Ducarouge et Léo Colisson.}
+
+\section{Les théorèmes d'énergie}
+À utiliser lorsque l'on a un degré de liberté :
+\textbf{Théorème de la puissance cinétique} et en intégrant \textbf{Théorème de l'énergie cinétique} :
+$\boxed{\dfrac{dE_c}{dt} = P_{ext} + P_{int}} \ \boxed{(\Delta E_c)_{t_1}^{t_2} = W_{t_1 \rightarrow t_2, ext} + W_{t_1 \rightarrow t_2, int}} $
+(Sol. indéformable : $P_{int} = 0$. (il s'agit d'une intégrale première du mouvement, \textit{qu'il suffit de dériver pour avoir l'équation du mouvement}).
+% Int $1^{ère}$ du mvt, \textit{à dériver pour avoir l'éq du mvt})
+
+\section{Energie potentielle}
+Force conservative ssi travail indépendant de la trajectoire.
+
+Force dérive d'une énergie potentielle ssi $\exists E_p / \delta W = -d E_p$ et $\overrightarrow{F} = - \overrightarrow{grad}(E_p)$.
+
+La puissance d'une force conservative est alors $P = -\frac{d E_p}{dt}$.
+
+\subsection{Théorèmes énergie mécanique}
+En posant $E_m = E_c + E_p$ le \textbf{Théorème de la puissance mécanique} donne $\boxed{\frac{dE_m}{dt} = P_{non conservatives}}$ et en intégrant on obtient le \textbf{théorème de l'énergie mécanique} : $\boxed{\Delta E_m = W_{non conservative}}$ (Intégrale première du mvt, cf 3)
+
+\subsection{Exemples à connaître}
+\textbf{Poids} : O point fixe : $E_p = m\overrightarrow{g}\cdot\overrightarrow{OG} + cte$
+
+\textbf{Force en $\frac{1}{r^2}$} : $E_p = \frac{k}{r}+ cte$
+
+\textbf{Ressort} : $E_p = \frac{1}{2} k (l - l_0)^2$
+
+\textbf{Couple rappel} (ressort en spirale) : $E_p = \frac{1}{2} C (\theta_p - \theta_q)^2$
+
+\textbf{Force centrifuge} (avec $f_{ie}$) : $E_p = \frac{1}{2}m\omega^2r^2$
+
+Forces non conservatives :
+\textbf{Frottement fluide} : $\overrightarrow{f} = -\lambda v^\alpha \overrightarrow{v}$ alors $P = -\lambda v^{\alpha+2}$;$\overrightarrow{\Gamma} = -h\overrightarrow{\omega}$ alors $P = -h\omega^2$.
+
+% \raggedcolumns
+\end{multicols*}
+
+\end{document}
+
